@@ -10,3 +10,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+gleanStories/.settings/
+ck-utils/.svn/
+ck-utils/.classpath
+ck-utils/.project
+ck-utils/target/
+ck-utils/.settings/
+gleanStories/.project
+gleanStories/.classpath
+gleanStories/target/
