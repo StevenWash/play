@@ -1,20 +1,27 @@
-<<<<<<< HEAD
-
-
+.metadata/
+.recommenders/
+.project/
 
 testProvider/.settings/
 testProvider/target/
 testProvider/bin/
 testProvider/.classpath
 testProvider/.project
-=======
-.metadata/
-.recommenders/
-.project/
-testProvider/.classpath
-testProvider/.project
-testProvider/.gitignore
-testProvider/.settings/
-testMain/.project
->>>>>>> d512c009993a6f5b8de0cbc3cd04ec2180b848d1
+
 testMain/.settings/
+testMain/target/
+testMain/bin/
+testMain/.classpath
+testMain/.project
+
+testApi/.settings/
+testApi/target/
+testApi/bin/
+testApi/.classpath
+testApi/.project
+
+testConsumer/.settings/
+testConsumer/target/
+testConsumer/bin/
+testConsumer/.classpath
+testConsumer/.project
