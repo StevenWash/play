@@ -1,3 +1,8 @@
-.metadata/
-.recommenders/
-.project/
+
+
+
+testProvider/.settings/
+testProvider/target/
+testProvider/bin/
+testProvider/.classpath
+testProvider/.project
