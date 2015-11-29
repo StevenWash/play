@@ -26,3 +26,11 @@ sendEmail/.project
 sendEmail/bin/
 sendEmail/databases/sqlite/
 sendEmail/.settings/
+
+test/testSpringmvcMysql/.classpath
+test/testSpringmvcMysql/.project
+test/testSpringmvcMysql/bin/
+test/testSpringmvcMysql/databases/sqlite/
+test/testSpringmvcMysql/.settings/
+test/testSpringmvcMysql/target/
+test/testSpringmvcMysql/workspace/
