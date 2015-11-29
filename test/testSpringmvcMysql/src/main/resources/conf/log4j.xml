@@ -75,7 +75,7 @@
 	<!--- 异步测试，当日志达到缓存区大小时候执行所包的appender -->
 	<appender name="ASYNC_test" class="org.apache.log4j.AsyncAppender">
 		<param name="BufferSize" value="10" />
-		<appender-ref ref="EMAIL_QQ" />
+		<!-- <appender-ref ref="EMAIL_QQ" /> -->
 	</appender>
 
 	<!-- 设置包限制输出的通道 -->
