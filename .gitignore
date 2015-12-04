@@ -34,3 +34,11 @@ test/testSpringmvcMysql/databases/sqlite/
 test/testSpringmvcMysql/.settings/
 test/testSpringmvcMysql/target/
 test/testSpringmvcMysql/workspace/
+
+test/testAop/.classpath
+test/testAop/.project
+test/testAop/bin/
+test/testAop/databases/sqlite/
+test/testAop/.settings/
+test/testAop/target/
+test/testAop/.gitignore
