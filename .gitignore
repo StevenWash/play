@@ -25,3 +25,17 @@ testConsumer/target/
 testConsumer/bin/
 testConsumer/.classpath
 testConsumer/.project
+
+apidoc/.settings/
+apidoc/target/
+apidoc/bin/
+apidoc/.classpath
+apidoc/.project
+apidoc/.gitignore
+
+testJDK/.settings/
+testJDK/target/
+testJDK/bin/
+testJDK/.classpath
+testJDK/.project
+testJDK/.gitignore
