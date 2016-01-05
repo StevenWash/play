@@ -5,6 +5,11 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>Archetype Created Web Application</display-name>
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/jquery-easyui/</url-pattern>
+	</servlet-mapping>
+
 	<!-- 读取spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

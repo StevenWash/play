@@ -27,6 +27,14 @@ sendEmail/bin/
 sendEmail/databases/sqlite/
 sendEmail/.settings/
 
+SpringBoot/testSpringBoot/.classpath
+SpringBoot/testSpringBoot/.project
+SpringBoot/testSpringBoot/bin/
+SpringBoot/testSpringBoot/databases/sqlite/
+SpringBoot/testSpringBoot/.settings/
+SpringBoot/testSpringBoot/target/
+SpringBoot/testSpringBoot/workspace/
+
 test/testSpringmvcMysql/.classpath
 test/testSpringmvcMysql/.project
 test/testSpringmvcMysql/bin/

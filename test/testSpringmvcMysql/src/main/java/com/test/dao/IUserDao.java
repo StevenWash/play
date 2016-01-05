@@ -1,12 +1,16 @@
 package com.test.dao;
 
+import java.util.List;
+
 import com.test.model.User;
 
 public interface IUserDao {
 	/**
-     * 添加新用户
+     * 鎻掑叆鐢ㄦ埛
      * @param user
      * @return
      */
     public int insertUser(User user);
+    
+    public List<User> getAll();
 }
