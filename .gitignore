@@ -35,6 +35,7 @@ SpringBoot/testSpringBoot/.project
 SpringBoot/testSpringBoot/bin/
 SpringBoot/testSpringBoot/databases/sqlite/
 SpringBoot/testSpringBoot/.settings/
+SpringBoot/testSpringBoot/.gitignore
 SpringBoot/testSpringBoot/target/
 SpringBoot/testSpringBoot/workspace/
 
