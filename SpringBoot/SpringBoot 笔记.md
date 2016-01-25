@@ -1,12 +1,13 @@
 ####创建Maven工程，增加如下依赖
-`<dependency>`
-`    <groupId>org.springframework.boot</groupId>`
-`    <artifactId>spring-boot-starter-web</artifactId>`
-`	<version>1.2.3.RELEASE</version>`
-`</dependency>`
-
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+	<version>1.2.3.RELEASE</version>
+</dependency>
+```
 ####编写一个Controller
-
+```java
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +24,10 @@ public class HelloController {
         return "Spring Boot";
     }
 }
-
+```
 
 ####创建启动类
-
+```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -41,7 +42,7 @@ public class Startup {
 	        app.run(args);  
     }    
 }
-
+```
 启动容器。
 通过run application方式运行主函数，即可启动容器。
 
