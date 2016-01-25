@@ -1,3 +1,12 @@
+##SpringBoot 的优点：##
+- 依赖少，只有一个 `spring-boot-starter-web` 
+
+- 配置少，默认都配置在代码中，尽量做到零配置
+
+- 不依赖web容器即可启动 
+
+###简单上手
+
 ####创建Maven工程，增加如下依赖
 ```xml
 <dependency>
