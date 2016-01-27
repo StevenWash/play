@@ -112,7 +112,6 @@ public class PushSender {
 			//config.setMobile(""); // 按手机号
 			// config.setUuid(""); // uuid 按设备唯一标示
 			config.setUid(662281); // 按uid
-			config.setBadge(1); // 显示在设备右上角的通知数
 			
 			/*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			try {
@@ -146,7 +145,6 @@ public class PushSender {
 			// 类型
 			textMsg.setStringProperty("type", MESSAGE_TYPE);
 			textMsg.setIntProperty("uid", 661519);
-			textMsg.setIntProperty("badge", 1);
 			textMsg.setStringProperty("text", "通过MQ发送");
 			producer.send(textMsg);
 		}
