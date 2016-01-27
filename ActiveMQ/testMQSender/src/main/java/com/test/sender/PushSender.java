@@ -109,8 +109,8 @@ public class PushSender {
 			
 			// push发送配置
 			PushConfig config = new PushConfig();
-			//config.setMobile("18616849667"); // 按手机号
-			// config.setUuid("F5A5123B-E9A4-47B9-9751-2A0A8CF74157"); // uuid 按设备唯一标示
+			//config.setMobile(""); // 按手机号
+			// config.setUuid(""); // uuid 按设备唯一标示
 			config.setUid(662281); // 按uid
 			config.setBadge(1); // 显示在设备右上角的通知数
 			
