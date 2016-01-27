@@ -1,5 +1,8 @@
 package com.test.sender;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 发送者
  *
@@ -21,8 +24,30 @@ import com.horizon.app.push.bean.PushMessage;
 
 public class PushSender {
 	
+	/**
+	 * mobile-push 的队列名称
+	 */
 	private static final String QUEUE_NAME = "mobile_push_queue";
+	/**
+	 * 在bsi中的消息类型
+	 */
 	private static final String MESSAGE_TYPE = "mobile_push";
+	
+	/**
+	 * MQ 用户名，根据不同的环境配置
+	 */
+	private static final String USERNAME = "admin";
+	
+	/**
+	 * MQ 密码，根据不同的环境配置
+	 */
+	private static final String PASSWORD = "admin";
+	
+	/**
+	 * MQ url，根据不同的环境配置
+	 */
+	private static final String BROKERURL = "tcp://192.168.37.12:61616";
+	
 	
 	private static final int SEND_NUMBER = 1;
 
@@ -39,7 +64,7 @@ public class PushSender {
 		MessageProducer producer;
 		// TextMessage message;
 		// 构造ConnectionFactory实例对象，此处采用ActiveMq的实现jar
-		connectionFactory = new ActiveMQConnectionFactory("admin", "admin", "tcp://192.168.37.12:61616");
+		connectionFactory = new ActiveMQConnectionFactory(USERNAME, PASSWORD, BROKERURL);
 		try {
 			// 构造从工厂得到连接对象
 			connection = connectionFactory.createConnection();
@@ -57,6 +82,8 @@ public class PushSender {
 			sendObjectMessage(session, producer);
 			//sendTextMessage(session, producer);
 			session.commit();
+			
+			System.out.println("发送完毕！");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -68,28 +95,38 @@ public class PushSender {
 		}
 	}
 
+	/**
+	 * 发送 PushMessage 对象
+	 * @param session
+	 * @param producer
+	 * @throws Exception
+	 */
 	public static void sendObjectMessage(Session session, MessageProducer producer) throws Exception {
 		for (int i = 1; i <= SEND_NUMBER; i++) {
 			ObjectMessage objMsg = session.createObjectMessage();
 			// 类型
 			objMsg.setStringProperty("type", MESSAGE_TYPE);
 			
+			// push发送配置
 			PushConfig config = new PushConfig();
-			//config.setMobile("18616849667");
-			//config.setInstallation_id("");
-			config.setUid(661519);
+			//config.setMobile("18616849667"); // 按手机号
+			// config.setUuid("F5A5123B-E9A4-47B9-9751-2A0A8CF74157"); // uuid 按设备唯一标示
+			config.setUid(662281); // 按uid
+			config.setBadge(1); // 显示在设备右上角的通知数
 			
 			/*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			try {
-				Date push_time = sdf.parse("2015-12-11 18:00:00");
-				config.setPush_time(push_time);
-				config.setExpiration_interval(86400L);
+				config.setPush_time(sdf.parse("2016-01-27 14:57:00")); // 设置定期推送时间
+				//config.setExpiration_interval(86400L); // 消息过期的相对时间，从调用 API 的时间开始算起，单位是「秒」
+				config.setExpiration_time(sdf.parse("2016-01-28 14:35:00"));// 消息过期的绝对日期时间
 			} catch (Exception e) {
 				e.printStackTrace();
 			}*/
 			
 			PushMessage msg = new PushMessage();
-			msg.setAlert("通过mq发送");
+			//msg.setTitle("push title");
+			msg.setAlert("通过mq发送"); // 如果只是通知消息，设置alert即可
+			//msg.setUrl("push url");
 			config.setPushMessage(msg);
 			
 			objMsg.setObject(config);
@@ -97,13 +134,19 @@ public class PushSender {
 		}
 	}
 	
+	/**
+	 * 直接根据uid进行发送
+	 * @param session
+	 * @param producer
+	 * @throws Exception
+	 */
 	public static void sendTextMessage(Session session, MessageProducer producer) throws Exception {
 		for (int i = 1; i <= SEND_NUMBER; i++) {
 			TextMessage textMsg = session.createTextMessage();
 			// 类型
 			textMsg.setStringProperty("type", MESSAGE_TYPE);
 			textMsg.setIntProperty("uid", 661519);
-			textMsg.setIntProperty("badge", 0);
+			textMsg.setIntProperty("badge", 1);
 			textMsg.setStringProperty("text", "通过MQ发送");
 			producer.send(textMsg);
 		}
