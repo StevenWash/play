@@ -12,6 +12,7 @@ public class ByteToBinary {
 		for (byte b : bArr) {
 			result += getBinaryStrFromByte(b);
 		}
+		// test
 		return result;
 	}
 
