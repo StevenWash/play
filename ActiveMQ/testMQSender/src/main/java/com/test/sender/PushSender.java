@@ -49,7 +49,7 @@ public class PushSender {
 	private static final String BROKERURL = "tcp://192.168.37.12:61616";
 	
 	
-	private static final int SEND_NUMBER = 1;
+	private static final int SEND_NUMBER = 2;
 
 	public static void main(String[] args) {
 		// ConnectionFactory ：连接工厂，JMS 用它创建连接
@@ -79,8 +79,9 @@ public class PushSender {
 			// 设置不持久化，此处学习，实际根据项目决定
 			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 			// 构造消息，此处写死，项目就是参数，或者方法获取
-			sendObjectMessage(session, producer);
-			//sendTextMessage(session, producer);
+			//sendObjectMessage(session, producer);
+			sendTextMessage(session, producer);
+			//sendObjectMessageAndSetTime(session, producer);
 			session.commit();
 			
 			System.out.println("发送完毕！");
@@ -92,6 +93,44 @@ public class PushSender {
 					connection.close();
 			} catch (Throwable ignore) {
 			}
+		}
+	}
+	
+	/**
+	 * 定时发送
+	 * @param session
+	 * @param producer
+	 * @throws Exception
+	 */
+	public static void sendObjectMessageAndSetTime(Session session, MessageProducer producer) throws Exception {
+		for (int i = 1; i <= SEND_NUMBER; i++) {
+			ObjectMessage objMsg = session.createObjectMessage();
+			// 类型
+			objMsg.setStringProperty("type", MESSAGE_TYPE);
+			
+			// push发送配置
+			PushConfig config = new PushConfig();
+			//config.setMobile(""); // 按手机号
+			// config.setUuid(""); // uuid 按设备唯一标示
+			config.setUid(662281); // 按uid
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			try {
+				config.setPush_time(sdf.parse("2016-01-28 17:01:00")); // 设置定期推送时间
+				//config.setExpiration_interval(86400L); // 消息过期的相对时间，从调用 API 的时间开始算起，单位是「秒」
+				//config.setExpiration_time(sdf.parse("2016-01-28 14:35:00"));// 消息过期的绝对日期时间
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			PushMessage msg = new PushMessage();
+			msg.setTitle("push title");
+			msg.setAlert("通过mq发送"); // 如果只是通知消息，设置alert即可
+			//msg.setUrl("push url");
+			config.setPushMessage(msg);
+			
+			objMsg.setObject(config);
+			producer.send(objMsg);
 		}
 	}
 
@@ -144,8 +183,9 @@ public class PushSender {
 			TextMessage textMsg = session.createTextMessage();
 			// 类型
 			textMsg.setStringProperty("type", MESSAGE_TYPE);
-			textMsg.setIntProperty("uid", 661519);
+			textMsg.setIntProperty("uid", 662281);
 			textMsg.setStringProperty("text", "通过MQ发送");
+			//textMsg.setIntProperty("badge", 1);
 			producer.send(textMsg);
 		}
 	}
