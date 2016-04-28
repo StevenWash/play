@@ -11,13 +11,6 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<!-- dubbo -->
-		<dubbo.application.name>test-test-server</dubbo.application.name>
-		<dubbo.application.owner>tester</dubbo.application.owner>
-		<dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
-		<dubbo.protocol.name>dubbo</dubbo.protocol.name>
-		<dubbo.protocol.port>20210</dubbo.protocol.port>
-
 		<spring.version>3.2.8.RELEASE</spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -211,7 +204,13 @@
 			<properties>
 				<!-- 提供服务 -->
 				<dubbo.registry.address>192.168.32.202:2181</dubbo.registry.address>
-
+				<!-- dubbo -->
+				<dubbo.application.name>test-test-server</dubbo.application.name>
+				<dubbo.application.owner>tester</dubbo.application.owner>
+				<dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
+				<dubbo.protocol.name>dubbo</dubbo.protocol.name>
+				<dubbo.protocol.port>20210</dubbo.protocol.port>
+				
 				<!-- 日志 -->
 				<log.root.level>DEBUG</log.root.level>
 				<log.root.name>Service</log.root.name>
@@ -224,6 +223,12 @@
 				<maven.test.skip>true</maven.test.skip>
 				<!-- 提供服务 -->
 				<dubbo.registry.address>192.168.37.85:2181</dubbo.registry.address>
+				<!-- dubbo -->
+				<dubbo.application.name>test-test-server</dubbo.application.name>
+				<dubbo.application.owner>tester</dubbo.application.owner>
+				<dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
+				<dubbo.protocol.name>dubbo</dubbo.protocol.name>
+				<dubbo.protocol.port>20210</dubbo.protocol.port>
 
 				<!-- 日志 -->
 				<log.root.level>DEBUG</log.root.level>
@@ -236,6 +241,12 @@
 			<properties>
 				<!-- 提供服务 -->
 				<dubbo.registry.address>192.168.32.202:2181</dubbo.registry.address>
+				<!-- dubbo -->
+				<dubbo.application.name>test-test-server</dubbo.application.name>
+				<dubbo.application.owner>tester</dubbo.application.owner>
+				<dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
+				<dubbo.protocol.name>dubbo</dubbo.protocol.name>
+				<dubbo.protocol.port>20210</dubbo.protocol.port>
 
 				<!-- 日志 -->
 				<log.root.level>DEBUG</log.root.level>

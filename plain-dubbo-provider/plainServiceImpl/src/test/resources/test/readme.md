@@ -1,0 +1,1 @@
+- 该文件夹下面是一些properties文件，由 META-INF\spring\spring-config.xml 中的 propertyConfigurer 读取相关配置

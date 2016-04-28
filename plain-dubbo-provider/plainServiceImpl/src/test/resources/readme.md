@@ -1,0 +1,1 @@
+- 右键项目，确保 Java Build Path->Source->${projectName}/src/test/resources 的 Excluded:(None) 是这样的，否则编译的时候不会将该文件夹下的文件打到  ${projectName}\target\test-classes 目录中

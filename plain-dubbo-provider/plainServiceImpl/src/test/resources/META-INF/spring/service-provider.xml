@@ -12,17 +12,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<dubbo:application name="test-test-server" owner="tester" organization="com.toulezu" />
+	<dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" organization="com.toulezu" />
 
 	<dubbo:provider serialization="kryo" codec="dubbo"
 		server="netty" client="netty" threadpool="cached" connections="1"
 		loadbalance="consistenthash" cluster="failfast" delay="-1" />
 
-	<dubbo:registry protocol="zookeeper" address="192.168.32.202:2181" />
+	<dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />
 
 	<dubbo:monitor protocol="registry" />
 
-	<dubbo:protocol name="dubbo" serialization="kryo" port="20210" />
+	<dubbo:protocol name="${dubbo.protocol.name}" serialization="kryo" port="${dubbo.protocol.port}" />
 
 	<dubbo:service ref="userService" interface="com.toulezu.service.IUserService" version="1.0.0" />
 	
