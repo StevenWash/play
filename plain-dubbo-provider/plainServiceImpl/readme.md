@@ -1,3 +1,5 @@
+# 一个简单的基于Maven构建的Java项目，该项目将提供dubbo服务，通过`profile`可以在打包的时候区分不同环境的配置，项目最终会打包成 tar.gz 格式
+
 - 右键项目，确保 `Java Build Path->Source->${projectName}/src/test/resources` 的 `Excluded:(None)` 是这样的，否则编译的时候不会将该文件夹下的文件打到  `${projectName}\target\test-classes` 目录中；
 
 - 测试环境中会将 `${projectName}/src/test/resources/test` 目录下的`properties` 文件通过 `${projectName}/src/test/resources/META-INF/spring/spring-config.xml` 中的 PropertyPlaceholderConfigurer 配置类读取指定的配置；
