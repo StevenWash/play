@@ -1,0 +1,1 @@
+insert into user(id, name, price) values (1, 'apple', 9.99)
