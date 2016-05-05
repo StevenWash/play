@@ -19,7 +19,7 @@ import org.apache.http.util.EntityUtils;
  * @author toulezu
  *
  */
-public class HttpsClient {
+public class HttpsClientTrustStore {
 	private static final String KEY_STORE_TYPE_JKS = "jks";
 	private static final String KEY_STORE_TYPE_P12 = "PKCS12";
 	private static final String SCHEME_HTTPS = "https";
@@ -39,8 +39,8 @@ public class HttpsClient {
 		try {
 			KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
 			KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_JKS);
-			InputStream ksIn = HttpsClient.class.getClassLoader().getResourceAsStream(KEY_STORE_CLIENT_PATH);
-			InputStream tsIn = HttpsClient.class.getClassLoader().getResourceAsStream(KEY_STORE_TRUST_PATH);
+			InputStream ksIn = HttpsClientTrustStore.class.getClassLoader().getResourceAsStream(KEY_STORE_CLIENT_PATH);
+			InputStream tsIn = HttpsClientTrustStore.class.getClassLoader().getResourceAsStream(KEY_STORE_TRUST_PATH);
 			try {
 				keyStore.load(ksIn, KEY_STORE_PASSWORD.toCharArray());
 				trustStore.load(tsIn, KEY_STORE_TRUST_PASSWORD.toCharArray());
