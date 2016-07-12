@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+    <appender name="Async" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="DailyFile"/>
+    </appender>
+
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="File" class="org.apache.log4j.FileAppender">
+        <param name="File" value="com.bizmonitor.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="DailyFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${log4j.daily.file}"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="RollingFile" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/com.bizmonitor.log"/>
+        <param name="Append" value="true"/>
+        <param name="MaxFileSize" value="1000KB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="Socket" class="org.apache.log4j.net.SocketAppender">
+        <param name="RemoteHost" value="127.0.0.1"/>
+        <param name="Port" value="4445"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="MongoDB" class="org.log4mongo.MongoDbAppender">
+        <param name="databaseName" value="horizonlogs"/>
+        <param name="collectionName" value="logs"/>
+        <param name="hostname" value="127.0.0.1"/>
+        <param name="port" value="27017"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-6p %c - %m%n"/>
+		</layout>
+    </appender>
+
+    <appender name="LOGSTASH" class="org.apache.log4j.net.SocketAppender">
+        <param name="RemoteHost" value="${log4j.logstash.address}"/>
+   		<param name="Port" value="${log4j.logstash.port}"/>
+        <param name="ReconnectionDelay" value="10000"/>
+        <param name="LocationInfo" value="true"/>
+        <param name="Application" value="web-mobile-api" />
+        <param name="Threshold" value="${log4j.logstash.level}"/>
+    </appender>
+
+    <category name="org.springframework">
+        <priority value="${log4j.level}"/>
+    </category>
+    <category name="org.apache.ibatis">
+        <priority value="${log4j.level}"/>
+    </category>
+    <category name="org.mybatis">
+        <priority value="${log4j.level}"/>
+    </category>
+    <category name="com">
+        <priority value="${log4j.level}"/>
+    </category>
+    <category name="com.horizon.framework.common.memcached.client">
+        <priority value="ERROR"/>
+    </category>
+    <category name="com.atomikos">
+        <priority value="ERROR"/>
+    </category>
+    <category name="atomikos">
+        <priority value="ERROR"/>
+    </category>
+
+    <root>
+        <priority value="${log4j.level}"/>
+        <appender-ref ref="Console"/>
+        <appender-ref ref="DailyFile"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+
+</log4j:configuration>

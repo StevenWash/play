@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://code.alibabatech.com/schema/dubbo  
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">       
+	<!-- 
+	<dubbo:application name="api" />   
+	  
+	<dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper.address}" /> 
+	
+	protocol
+	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:consumer timeout="1000000" />
+
+	用户中心相关
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.user.url}" id="thirdUserService" interface="com.horizon.busic.uc.service.ThirdUserService" version="1.5.3" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.user.url}" id="userServicebyUC" interface="com.horizon.api.uc.service.UserService" version="1.5.3" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.user.url}" id="basicUserService" interface="com.horizon.busic.uc.service.BasicUserService" version="1.5.3" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.cms.url}" id="schoolsService" interface="com.horizon.api.school.service.SchoolsService" version="1.5.3" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.cms.url}" id="cmsService" interface="com.horizon.api.school.service.CMSService" version="1.5.3" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.uc.cms.url}" id="basicDataService" interface="com.horizon.api.school.service.BasicDataService" version="1.5.3" />
+	
+	硬需求重构
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="usersThreestepsService" interface="com.horizon.biz_c.offer.service.threesteps.IUsersThreestepsInfoService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="intelligentService" interface="com.horizon.biz_c.offer.service.intelligent.IIntelligentService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="applyService" interface="com.horizon.biz_c.offer.service.apply.IApplyService"  version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="orderCartService" interface="com.horizon.biz_c.offer.service.cart.IOrderCartService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="orderRegularInfoService" interface="com.horizon.biz_c.offer.service.order.IOrderRegularInfoService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="orderService" interface="com.horizon.biz_c.offer.service.order.IOrderService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="dictService" interface="com.horizon.biz_c.offer.service.system.IDictService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="appService" interface="com.horizon.biz_c.offer.service.apply.IAppService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="paymentService" interface="com.horizon.biz_c.offer.service.pledge.IPaymentService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="pledgeRelaService" interface="com.horizon.biz_c.offer.service.pledge.IPledgeRelaService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="sysTaskService" interface="com.horizon.biz_c.offer.service.task.SysTaskService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="sysTaskSearchService" interface="com.horizon.biz_c.offer.service.task.ISysTaskSearchService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="sysStatusFlowLogService" interface="com.horizon.biz_c.offer.service.log.ISysStatusFlowLogService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="dashboardRecordService" interface="com.horizon.biz_c.offer.service.dashboard.IDashboardRecordService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="messageRecordService" interface="com.horizon.biz_c.offer.service.message.IMessageRecordService" version="2.0.0"/>
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="appMailService" interface="com.horizon.biz_c.offer.service.coremail.IAppMailService" version="2.0.0" />
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.rf.url}" id="sysGlobalStatusService" interface="com.horizon.biz_c.offer.service.task.SysGlobalStatusService" version="2.0.0" />
+
+	push 相关
+	<dubbo:reference check="${dubbo.check}" url="${dubbo.push.url}" id="pushService" interface="com.horizon.app.push.service.PushService" version="0.0.1" />
+	 -->
+</beans>  
