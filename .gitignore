@@ -1,7 +1,13 @@
+EmlReader/
+apache-tomcat-6.0.45-src/
+apache-tomcat-6.0.45-lib/
+tomcat6/
+testweb/
+################
 *.class
 .metadata/
 .recommenders/
-
+META-INF/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

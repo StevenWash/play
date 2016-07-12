@@ -1,25 +1,31 @@
-# Ò»¸ö¼òµ¥µÄ»ùÓÚMaven¹¹½¨µÄJava WebÏîÄ¿£¬Ê¹ÓÃSpringBoot¿ò¼Ü£¬Í¨¹ý`profile`¿ÉÒÔÔÚ´ò°üµÄÊ±ºòÇø·Ö²»Í¬»·¾³µÄÅäÖÃ
-- Maven
-- Java Web
-- SpringBoot
+# é¡¹ç›®è¯´æ˜Ž
 
-##ÏîÄ¿½á¹¹
-- `com.test.bean` ÒµÎñÊµÌå
+## ä¸€ä¸ªç®€å•çš„åŸºäºŽMavenæž„å»ºçš„Java Webé¡¹ç›®ï¼Œä½¿ç”¨SpringBootæ¡†æž¶ï¼Œé€šè¿‡`profile`å¯ä»¥åœ¨æ‰“åŒ…çš„æ—¶å€™åŒºåˆ†ä¸åŒçŽ¯å¢ƒçš„é…ç½®ï¼Œä¸éœ€è¦åº”ç”¨æœåŠ¡å™¨å³å¯å¯åŠ¨
+
+## é¡¹ç›®ç»“æž„
+
+- `com.test.bean` ä¸šåŠ¡å®žä½“
+
 - `com.test.controller`  Conroller
-- `com.test.run` Æô¶¯Àà
 
-##Æô¶¯
-Ö´ÐÐ `/plainWebService/src/main/java/com/test/run/Run.java` ¼´¿ÉÆô¶¯ÏîÄ¿£¬ÔÚä¯ÀÀÆ÷ÖÐÊäÈë `http://localhost:8080/test/hello` ¼´¿É·ÃÎÊÔÚConroller `/plainWebService/src/main/java/com/test/controller/TestConroller.java` ÖÐ±àÐ´µÄÂß¼­
+- `com.test.run` å¯åŠ¨ç±»
 
-##¿ª·¢Î¢·þÎñ
-Boot¶ÔSpringÓ¦ÓÃµÄ¿ª·¢½øÐÐÁË¼ò»¯£¬Ìá¹©ÁËÄ£¿é»¯·½Ê½µ¼ÈëÒÀÀµµÄÄÜÁ¦£¬Ç¿µ÷ÁË¿ª·¢RESTful Web·þÎñµÄ¹¦ÄÜ²¢Ìá¹©ÁËÉú³É¿ÉÔËÐÐjarµÄÄÜÁ¦£¬ÕâÒ»ÇÐ¶¼ÇåÎúµØ±íÃ÷ÔÚ¿ª·¢¿É²¿ÊðµÄÎ¢·þÎñ·½ÃæBoot¿ò¼ÜÊÇÒ»¸öÇ¿´óµÄ¹¤¾ß¡£ÕýÈçÇ°ÃæµÄÀý×ÓËùÊ¾£¬½èÖúÓÚBoot£¬ÈÃÒ»¸öRESTful Web¹¤³ÌÔËÐÐÆðÀ´ÊÇÒ»¼þºÜÈÝÒ×µÄÊÂÇé£»²»¹ý£¬ÎªÁËÁË½âBootËùÓÐÇ±ÔÚµÄ¹¦ÄÜ£¬ÎÒÃÇ»á²ûÊöÔÚ¿ª·¢ÍêÕû¹¦ÄÜµÄÎ¢·þÎñÊ±£¬»áÓöµ½µÄËùÓÐ·±ËöµÄÊÂÇé¡£ÔÚÆóÒµ¼¶»ù´¡ÉèÊ©ÁìÓò£¬Î¢·þÎñÊÇÒ»ÖÖÔ½À´Ô½Á÷ÐÐµÄÓ¦ÓÃ¼Ü¹¹£¬ÒòÎªËüÄÜ¹»ÊµÏÖ¿ìËÙ¿ª·¢¡¢¸üÐ¡µÄ´úÂë¿â¡¢ÆóÒµ¼¶¼¯³ÉÒÔ¼°Ä£¿é»¯²¿Êð¡£ÓÐÖÚ¶àµÄ¿ò¼ÜÖÂÁ¦ÓÚ¸ÃÁìÓòµÄ¿ª·¢¡£
+## å¯åŠ¨
 
-##Êý¾Ý·ÃÎÊ
-Spring BootÊ¹Êý¾Ý¿â¼¯³É±ä³ÉÁËÒ»Ïî·Ç³£¼òµ¥µÄÈÎÎñ£¬ÒòÎªËü¾ßÓÐ×Ô¶¯ÅäÖÃSpring DataÒÔ·ÃÎÊÊý¾Ý¿âµÄÄÜÁ¦¡£Ö»ÐèÔÚÄãµÄ¹¤³ÌÖÐ½«spring-boot-starter-data-jpa°üº¬½øÀ´£¬BootµÄ×Ô¶¯ÅäÖÃÒýÇæ¾ÍÄÜÌ½²âµ½ÄãµÄ¹¤³ÌÐèÒªÊý¾Ý·ÃÎÊ¹¦ÄÜ£¬²¢ÇÒ»áÔÚSpringÓ¦ÓÃÉÏÏÂÎÄÖÐ´´½¨±ØÒªµÄBean£¬ÕâÑùÄã¾Í¿ÉÒÔÊ¹ÓÃRepositoryºÍ·þÎñÁË¡£
+- æ‰§è¡Œ `/plainWebService/src/main/java/com/test/run/Run.java` å³å¯å¯åŠ¨é¡¹ç›®
 
+- åœ¨æµè§ˆå™¨ä¸­è¾“å…¥ `http://localhost:8080/test/hello` å³å¯è®¿é—®åœ¨Conroller `/plainWebService/src/main/java/com/test/controller/TestConroller.java` ä¸­ç¼–å†™çš„é€»è¾‘
 
-##²Î¿¼
-[ÉîÈëÑ§Ï°Î¢¿ò¼Ü£ºSpring Boot](http://www.infoq.com/cn/articles/microframeworks1-spring-boot)
+## å¼€å‘å¾®æœåŠ¡
 
+- Bootå¯¹Springåº”ç”¨çš„å¼€å‘è¿›è¡Œäº†ç®€åŒ–ï¼Œæä¾›äº†æ¨¡å—åŒ–æ–¹å¼å¯¼å…¥ä¾èµ–çš„èƒ½åŠ›
 
+- å¼ºè°ƒäº†å¼€å‘RESTful WebæœåŠ¡çš„åŠŸèƒ½å¹¶æä¾›äº†ç”Ÿæˆå¯è¿è¡Œjarçš„èƒ½åŠ›ï¼Œè®©ä¸€ä¸ªRESTful Webå·¥ç¨‹è¿è¡Œèµ·æ¥æ˜¯ä¸€ä»¶å¾ˆå®¹æ˜“çš„äº‹æƒ…
 
+## æ•°æ®è®¿é—®
+
+- åªéœ€åœ¨ä½ çš„å·¥ç¨‹ä¸­å°†`spring-boot-starter-data-jpa`åŒ…å«è¿›æ¥ï¼ŒBootçš„è‡ªåŠ¨é…ç½®å¼•æ“Žå°±èƒ½æŽ¢æµ‹åˆ°ä½ çš„å·¥ç¨‹éœ€è¦æ•°æ®è®¿é—®åŠŸèƒ½ï¼Œå¹¶ä¸”ä¼šåœ¨Springåº”ç”¨ä¸Šä¸‹æ–‡ä¸­åˆ›å»ºå¿…è¦çš„Beanï¼Œè¿™æ ·ä½ å°±å¯ä»¥ä½¿ç”¨Repositoryå’ŒæœåŠ¡äº†ã€‚
+
+## å‚è€ƒ
+
+[æ·±å…¥å­¦ä¹ å¾®æ¡†æž¶ï¼šSpring Boot](http://www.infoq.com/cn/articles/microframeworks1-spring-boot)

@@ -10,6 +10,6 @@ public class TestConroller {
 	
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String sayHello() {
-		return "hello"; // TODO ·µ»ØÖĞÎÄ»áÂÒÂë
+		return "hello"; // TODO è¿”å›ä¸­æ–‡ä¼šä¹±ç 
 	}
 }

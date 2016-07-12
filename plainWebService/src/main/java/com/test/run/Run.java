@@ -9,7 +9,7 @@ import com.test.run.Run;
 
 @Configuration
 @ComponentScan(basePackages = {"com.test"})
-@EnableAutoConfiguration // 告知Boot要采用一种特定的方式来对应用进行配置。这种方法会将其他样板式的配置均假设为框架默认的约定，因此能够聚焦于如何尽快地使应用准备就绪以便运行起来。
+@EnableAutoConfiguration // 鍛婄煡Boot瑕侀噰鐢ㄤ竴绉嶇壒瀹氱殑鏂瑰紡鏉ュ搴旂敤杩涜閰嶇疆銆傝繖绉嶆柟娉曚細灏嗗叾浠栨牱鏉垮紡鐨勯厤缃潎鍋囪涓烘鏋堕粯璁ょ殑绾﹀畾锛屽洜姝よ兘澶熻仛鐒︿簬濡備綍灏藉揩鍦颁娇搴旂敤鍑嗗灏辩华浠ヤ究杩愯璧锋潵
 public class Run {
 	public static void main(String[] args) {
 		SpringApplication.run(Run.class, args);
