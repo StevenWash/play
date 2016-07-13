@@ -289,7 +289,6 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
 		<!-- war 的名称 -->
 		<finalName>plainWebApi</finalName>
@@ -354,6 +353,7 @@
 					</overlays>
 				</configuration>
 			</plugin>
+			<!-- 指定使用maven的编译插件，不依赖平台和IDE的jdk版本 ，具体参考 http://maven.apache.org/plugins/maven-compiler-plugin/ -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -446,7 +446,6 @@
 				<dubbo.pay.url></dubbo.pay.url>
 				<dubbo.check>true</dubbo.check>
 
-
 				<!-- 日志相关 ->src/main/resources/log4j.xml -->
 				<log4j.level>INFO</log4j.level>
 				<log4j.daily.file>/usr/local/apps/logs/mobile-api/api-daily.log</log4j.daily.file>
@@ -470,8 +469,6 @@
 				<dubbo.push.url></dubbo.push.url>
 				<dubbo.pay.url></dubbo.pay.url>
 				<dubbo.check>false</dubbo.check>
-
-
 
 				<!-- 日志相关 ->src/main/resources/log4j.xml -->
 				<log4j.level>INFO</log4j.level>
