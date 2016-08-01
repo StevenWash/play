@@ -167,12 +167,12 @@ public class HandleControllerAspect {
 
 	private boolean isCheckPass(final String uid, final String token, final String user_agent) {
 		if (StringUtils.isNotBlank(uid)) {
-			/*Users user = userService.verifyUserLogin(0, token, user_agent, ProjectChannel.API);
-			if (user != null && uid.equals(StringUtil.getStr(user.getUid()))) {
-				return true;
-			} else {
-				return false;
-			}*/
+			/*
+			 * Users user = userService.verifyUserLogin(0, token, user_agent,
+			 * ProjectChannel.API); if (user != null &&
+			 * uid.equals(StringUtil.getStr(user.getUid()))) { return true; }
+			 * else { return false; }
+			 */
 			return true; // TODO 判断逻辑
 		} else {
 			return true;

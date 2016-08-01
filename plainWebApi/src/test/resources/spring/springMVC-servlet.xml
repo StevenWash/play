@@ -20,6 +20,16 @@
 
 	<context:component-scan base-package="com.test.api" />
 	
+	<context:annotation-config /> 
+
+	<bean id="commonConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:api.properties</value>
+			</list>
+		</property>
+	</bean>
+	
 	<!-- 以 aspectj 注解方式使用aop -->
 	<aop:aspectj-autoproxy />
 	<!-- 对 Controller 统一处理的aop实现 -->

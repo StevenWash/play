@@ -10,10 +10,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.8.RELEASE</spring.version>
+		<spring.version>4.2.6.RELEASE</spring.version>
 		<atomikos.version>3.7.0</atomikos.version>
 		<hardcode.version>0.0.1-SNAPSHOT</hardcode.version>
-		<version.jackson>2.4.4</version.jackson>
+		<version.jackson>2.7.4</version.jackson>
 
 		<version-checkstyle-plugin>2.17</version-checkstyle-plugin>
 		<version-checkstyle>6.13</version-checkstyle>
@@ -175,6 +175,19 @@
 		</dependency>
 		<!-- spring 相关 -->
 
+		<!-- jackson 相关， Spring 依赖jackson将http请求的内容转成json对象，@ResponseBody 将Java对象转成json -->
+		<!-- <dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency> -->
+		<!-- jackson 相关 -->
+
 		<!-- mongo 相关 -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -255,11 +268,6 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.1.23</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.9</version>
 		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId>
