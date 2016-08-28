@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container id="container1" layout="hbox">
+      <Button id="btnSysinfo">
+        <Property name="caption">获取系统信息</Property>
+        <Property name="action">ajaxActionGetSysInfo</Property>
+      </Button>
+      <Button id="btnClear">
+        <Property name="caption">清除</Property>
+      </Button>
+    </Container>
+    <Container layout="vbox">
+      <Label id="lblProduct" layoutConstraint="padding:10"/>
+      <Label id="lblVendor" layoutConstraint="padding:10"/>
+      <Label id="lblVersion" layoutConstraint="padding:10"/>
+      <Label id="lblTime" layoutConstraint="padding:10"/>
+    </Container>
+    <AjaxAction id="ajaxActionGetSysInfo">
+      <Property name="executingMessage">正在获取系统版本信息...</Property>
+      <Property name="successMessage">成功获取系统版本信息</Property>
+      <Property name="service">systemInfo#getSystemInfo</Property>
+    </AjaxAction>
+  </View>
+</ViewConfig>

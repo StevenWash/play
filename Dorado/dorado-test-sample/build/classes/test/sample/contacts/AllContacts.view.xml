@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dataSetEmployee">
+      <Property name="dataType">[SlEmployee]</Property>
+      <Property name="dataProvider">employeeService#getAllForFilter</Property>
+      <Property name="pageSize">15</Property>
+    </DataSet>
+    <DataPilot id="dataPilotEmployee">
+      <Property name="dataSet">dataSetEmployee</Property>
+      <Property name="itemCodes">pages,pageSize</Property>
+    </DataPilot>
+    <DataGrid id="dataGridEmployee">
+      <Property name="dataSet">dataSetEmployee</Property>
+      <Property name="showFilterBar">true</Property>
+      <Property name="filterMode">serverSide</Property>
+      <DataColumn name="employeeId">
+        <Property name="property">employeeId</Property>
+      </DataColumn>
+      <DataColumn name="employeeName">
+        <Property name="property">employeeName</Property>
+      </DataColumn>
+      <DataColumn name="employeeCode">
+        <Property name="property">employeeCode</Property>
+      </DataColumn>
+      <DataColumn name="userName">
+        <Property name="property">userName</Property>
+      </DataColumn>
+      <DataColumn name="sex">
+        <Property name="property">sex</Property>
+      </DataColumn>
+      <DataColumn name="birthday">
+        <Property name="property">birthday</Property>
+      </DataColumn>
+      <DataColumn name="married">
+        <Property name="property">married</Property>
+      </DataColumn>
+      <DataColumn name="salary">
+        <Property name="property">salary</Property>
+      </DataColumn>
+      <DataColumn name="degree">
+        <Property name="property">degree</Property>
+      </DataColumn>
+      <DataColumn name="email">
+        <Property name="property">email</Property>
+      </DataColumn>
+      <DataColumn name="image">
+        <Property name="property">image</Property>
+      </DataColumn>
+      <DataColumn name="phone">
+        <Property name="property">phone</Property>
+      </DataColumn>
+      <DataColumn name="mobile">
+        <Property name="property">mobile</Property>
+      </DataColumn>
+    </DataGrid>
+  </View>
+</ViewConfig>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <ClientEvent name="onCreate">/**&#xD;
+ * @author ck&#xD;
+ */&#xD;
+// @Bind #menu1.#menuItem1.onClick&#xD;
+!function() {&#xD;
+    dorado.MessageBox.alert(&quot;Help&quot;);&#xD;
+}&#xD;
+&#xD;
+// @Bind #menu1.#menuItem2.onClick&#xD;
+!function() {&#xD;
+    dorado.MessageBox.alert(&quot;About&quot;);&#xD;
+}&#xD;
+&#xD;
+//@Bind #tree1.onDataRowClick&#xD;
+!function(self) {&#xD;
+    // 定义Tab变量&#xD;
+    var tab = {};&#xD;
+    // self 代表事件所属的控件，此处指 Tree对象&#xD;
+    // self.get(&quot;currentNode&quot;)表示获取当前被点击的节点。&#xD;
+    with (self.get(&quot;currentNode&quot;)) {&#xD;
+        // 制定当前的tab为IFrameTab&#xD;
+        tab.$type = &quot;IFrame&quot;;&#xD;
+        // 定义新Tab的标签&#xD;
+        tab.caption = get(&quot;label&quot;);&#xD;
+        // 定义Tab的Path&#xD;
+        // get(&quot;userData&quot;)表示获取当前节点的UserData属性，&#xD;
+        // 也就是刚才设定的 sample.chapter01.HelloWorld.d&#xD;
+        tab.path = get(&quot;userData&quot;);&#xD;
+        tab.name = get(&quot;label&quot;);&#xD;
+        tab.closeable = true;&#xD;
+    }&#xD;
+    // 如果当前节点有指定的Path则打开新的tab&#xD;
+    if (tab.path) {&#xD;
+        with (view.get(&quot;#tabControl&quot;)) {&#xD;
+            // 根据name查找是否已经打开过当前的Tab。&#xD;
+            // 如果没有打开过，则需要添加一个新的Tab&#xD;
+            var currentTab = getTab(tab.name);&#xD;
+            if (currentTab) {&#xD;
+                tab = currentTab;&#xD;
+            } else {&#xD;
+                // 获取ID为tabControl的对象，并添加一个新的Tab&#xD;
+                // 设定ID为tabControl的对象的当前Tab为新创建的Tab&#xD;
+                tab = addTab(tab);&#xD;
+            }&#xD;
+            // 设定当前的Tab为制定的tab&#xD;
+            set(&quot;currentTab&quot;, tab);&#xD;
+        }&#xD;
+    }&#xD;
+}</ClientEvent>
+    <Property name="title">hello-title</Property>
+    <ToolBar>
+      <ToolBarLabel>
+        <Property name="style">
+          <Property name="padding-left">5px</Property>
+        </Property>
+        <Property name="text">dorado快速入门</Property>
+      </ToolBarLabel>
+      <Fill/>
+      <ToolBarButton>
+        <Property name="menu">menu1</Property>
+        <Property name="icon"> url(>skin>common/icons.gif) -100px -20px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <SplitPanel>
+      <Property name="position">200</Property>
+      <MainControl>
+        <TabControl/>
+      </MainControl>
+      <SideControl>
+        <Tree id="tree1">
+          <Node id="chapter01">
+            <Property name="icon"> url(>skin>common/icons.gif) -240px -280px</Property>
+            <Node id="chapter0101">
+              <Property name="icon"> url(>skin>common/icons.gif) -240px -280px</Property>
+              <Property name="label">helloworld</Property>
+              <Property name="userData">test.sample.one.panel.d</Property>
+            </Node>
+          </Node>
+          <Node id="chapter02">
+            <Property name="icon"> url(>skin>common/icons.gif) -240px -280px</Property>
+          </Node>
+          <Node id="chapter03">
+            <Property name="icon"> url(>skin>common/icons.gif) -240px -280px</Property>
+          </Node>
+          <Node id="chapter04">
+            <Property name="icon"> url(>skin>common/icons.gif) -240px -280px</Property>
+          </Node>
+        </Tree>
+      </SideControl>
+    </SplitPanel>
+    <Menu id="menu1">
+      <MenuItem id="menuItem1">
+        <ClientEvent name="onClick">dorado.MessageBox.alert(&quot;Help&quot;);</ClientEvent>
+        <Property name="caption">Help</Property>
+        <Property name="name">menuItem1</Property>
+      </MenuItem>
+      <MenuItem id="menuItem2">
+        <ClientEvent name="onClick">dorado.MessageBox.alert(&quot;About&quot;);</ClientEvent>
+        <Property name="caption">About</Property>
+        <Property name="name">menuItem2</Property>
+      </MenuItem>
+    </Menu>
+  </View>
+</ViewConfig>

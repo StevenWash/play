@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="style">
+      <Property name="padding-left">20px</Property>
+    </Property>
+    <Property name="title">sampleTwo</Property>
+    <DataSet id="userDataSet">
+      <Property name="dataProvider">simpleAjax#getUserList</Property>
+      <Property name="dataType">[User]</Property>
+    </DataSet>
+    <AjaxAction id="action1">
+      <Property name="service">simpleAjax#toUpperCase</Property>
+      <Property name="parameter">ss</Property>
+    </AjaxAction>
+    <Button id="btnToUpperCase">
+      <Property name="action">action1</Property>
+      <Property name="caption">toUpperCase</Property>
+      <Property name="style">
+        <Property name="padding-left">20px</Property>
+      </Property>
+    </Button>
+    <Button id="btnShowDialog">
+      <Property name="caption">显示对话框</Property>
+    </Button>
+    <Dialog id="dialogUserData">
+      <Property name="width">50%</Property>
+      <Property name="height">60%</Property>
+      <Property name="caption">显示用户数据</Property>
+      <Buttons/>
+      <Children>
+        <DataGrid id="userDataGrid">
+          <Property name="dataSet">userDataSet</Property>
+          <DataColumn>
+            <Property name="property">id</Property>
+            <Editor/>
+          </DataColumn>
+          <DataColumn>
+            <Property name="property">name</Property>
+            <Editor/>
+          </DataColumn>
+          <DataColumn>
+            <Property name="property">sex</Property>
+            <Editor/>
+          </DataColumn>
+        </DataGrid>
+      </Children>
+      <Tools/>
+    </Dialog>
+  </View>
+</ViewConfig>
