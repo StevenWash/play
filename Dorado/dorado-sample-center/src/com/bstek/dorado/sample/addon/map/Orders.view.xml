@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtOrder">
+      <Reference name="amount">
+        <Property name="label">下单量</Property>
+        <Property name="dataType">int</Property>
+      </Reference>
+      <Reference name="address">
+        <Property name="label">下单地址</Property>
+      </Reference>
+      <Reference name="orderTime">
+        <Property name="label">下单时间</Property>
+        <Property name="dataType">DateTime</Property>
+      </Reference>
+      <Reference name="description">
+        <Property name="label">订单描述</Property>
+      </Reference>
+      <Reference name="money">
+        <Property name="label">金额</Property>
+      </Reference>
+    </DataType>
+  </Model>
+  <View layout="anchor">
+    <Property name="title">实时订单位置</Property>
+    <DataSet id="dsOrder">
+      <Property name="dataType">[dtOrder]</Property>
+    </DataSet>
+    <Container layoutConstraint="left:20;top:20;right:20;bottom:20">
+      <SplitPanel>
+        <Property name="position">350</Property>
+        <Property name="direction">right</Property>
+        <MainControl>
+          <Panel>
+            <Property name="caption">实时订单地图</Property>
+            <Buttons/>
+            <Children>
+              <Map id="orderMap">
+                <Property name="showTexts">false</Property>
+                <Property name="scalable">false</Property>
+                <Property name="stroke">#fff</Property>
+                <Property name="fill">#96Cee6</Property>
+              </Map>
+            </Children>
+            <Tools/>
+          </Panel>
+        </MainControl>
+        <SideControl>
+          <Panel>
+            <Property name="caption">订单详细</Property>
+            <Buttons/>
+            <Children>
+              <GroupBox>
+                <Property name="caption">实时订单</Property>
+                <Buttons/>
+                <Children>
+                  <AutoForm>
+                    <Property name="cols">*</Property>
+                    <Property name="dataSet">dsOrder</Property>
+                    <AutoFormElement>
+                      <Property name="name">amount</Property>
+                      <Property name="property">amount</Property>
+                      <Editor/>
+                    </AutoFormElement>
+                    <AutoFormElement>
+                      <Property name="name">orderTime</Property>
+                      <Property name="property">orderTime</Property>
+                      <Editor/>
+                    </AutoFormElement>
+                    <AutoFormElement>
+                      <Property name="name">money</Property>
+                      <Property name="property">money</Property>
+                      <Editor/>
+                    </AutoFormElement>
+                    <AutoFormElement layoutConstraint="rowSpan:3">
+                      <Property name="name">address</Property>
+                      <Property name="property">address</Property>
+                      <Property name="editorType">TextArea</Property>
+                      <Editor/>
+                    </AutoFormElement>
+                  </AutoForm>
+                </Children>
+              </GroupBox>
+              <DataGrid>
+                <Property name="dataSet">dsOrder</Property>
+                <Property name="readOnly">true</Property>
+                <DataColumn name="address">
+                  <Property name="property">address</Property>
+                  <Property name="align">center</Property>
+                  <Property name="width">60</Property>
+                </DataColumn>
+                <DataColumn name="amount">
+                  <Property name="property">amount</Property>
+                  <Property name="width">50</Property>
+                </DataColumn>
+                <DataColumn name="money">
+                  <Property name="property">money</Property>
+                  <Property name="width">50</Property>
+                  <Property name="align">right</Property>
+                </DataColumn>
+                <DataColumn name="orderTime">
+                  <Property name="property">orderTime</Property>
+                </DataColumn>
+              </DataGrid>
+            </Children>
+            <Tools/>
+          </Panel>
+        </SideControl>
+      </SplitPanel>
+    </Container>
+    <Tip layoutConstraint="left:26;bottom:25">
+      <Property name="content">订单额度大于8000万时暗红色显示</Property>
+      <Property name="floating">false</Property>
+      <Property name="arrowDirection">left</Property>
+      <Property name="caption">提示信息</Property>
+    </Tip>
+  </View>
+</ViewConfig>

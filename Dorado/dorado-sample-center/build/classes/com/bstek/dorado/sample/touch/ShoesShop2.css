@@ -1,0 +1,24 @@
+.d-block-view .label {
+}
+
+.d-block-view .price {
+	position: absolute;
+	bottom: 0;
+	font-size: 120%;
+	color: #ff6633;
+	padding-bottom: 12px;
+}
+
+.d-template-field {
+	-webkit-box-orient: vertical;
+}
+
+.d-template-field .label {
+	font-size: 110%;
+}
+
+.d-template-field .price {
+	font-size: 140%;
+	color: #ff6633;
+	padding: 8px 0 8px 0;
+}

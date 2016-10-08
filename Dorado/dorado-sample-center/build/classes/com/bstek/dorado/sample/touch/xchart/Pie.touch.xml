@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="PieData">
+      <PropertyDef name="label"/>
+      <PropertyDef name="value"/>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsPie">
+      <Property name="dataType">[PieData]</Property>
+      <Property name="dataProvider">touchChartDataProvider#getPieData</Property>
+    </DataSet>
+    <Chart>
+      <Property name="legend">
+        <Property name="visible">true</Property>
+      </Property>
+      <Axes/>
+      <Series>
+        <Pie>
+          <Property name="dataSet">dsPie</Property>
+          <Property name="bindingConfig">
+            <Property name="labelProperty">label</Property>
+            <Property name="valueProperty">value</Property>
+          </Property>
+        </Pie>
+      </Series>
+    </Chart>
+  </View>
+</ViewConfig>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="vbox regionPadding:12">
+    <TouchToolBar layoutConstraint="top">
+      <Property name="caption">default</Property>
+      <TouchButton>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-remove</Property>
+        <Property name="ui">decline</Property>
+      </TouchButton>
+      <TouchToolBarSeparator/>
+      <TouchButton>
+        <Property name="iconClass">icon-cog</Property>
+        <Property name="badgeText">2</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <TouchToolBar layoutConstraint="top">
+      <Property name="caption">bottom</Property>
+      <Property name="ui">bottom</Property>
+      <TouchButton>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-remove</Property>
+        <Property name="ui">decline</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <TouchToolBar layoutConstraint="top">
+      <Property name="caption">optional1</Property>
+      <Property name="ui">optional1</Property>
+      <TouchButton>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-cog</Property>
+        <Property name="badgeText">2</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <TouchToolBar layoutConstraint="top">
+      <Property name="caption">optional2</Property>
+      <Property name="ui">optional2</Property>
+      <TouchButton>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-remove</Property>
+        <Property name="ui">decline</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <TouchToolBar layoutConstraint="top">
+      <Property name="caption">optional3</Property>
+      <Property name="ui">optional3</Property>
+      <TouchButton>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-cog</Property>
+        <Property name="badgeText">2</Property>
+      </TouchButton>
+    </TouchToolBar>
+  </View>
+</ViewConfig>

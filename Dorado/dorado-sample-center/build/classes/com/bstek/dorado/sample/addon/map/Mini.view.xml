@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Panel>
+      <Property name="caption">中国地图</Property>
+      <Buttons/>
+      <Children>
+        <Map id="chinaMap">
+          <Property name="tags">map</Property>
+          <SubMap id="provinceMap">
+            <Property name="tags">map</Property>
+          </SubMap>
+        </Map>
+        <Tip id="mapTip">
+          <Property name="content">&lt;div>试试单击省份&lt;/div>&lt;div>试试推动鼠标滚动轴！&lt;/div>&lt;div>试试地图拖动！&lt;/div></Property>
+          <Property name="caption">小提示</Property>
+          <Property name="closeable">true</Property>
+          <Property name="arrowAlign">left</Property>
+          <Property name="arrowDirection">bottom</Property>
+          <Property name="icon">INFO</Property>
+          <Property name="hideAnimateType">fade</Property>
+        </Tip>
+      </Children>
+      <Tools/>
+    </Panel>
+  </View>
+</ViewConfig>

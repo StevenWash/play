@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Context/>
+  <Model>
+    <DataType name="ProductQuery">
+      <Property name="metaData">
+        <Property name="jdbc.model">ProductQuery</Property>
+      </Property>
+      <Property name="meta">
+        <Property name="jdbc.compareLabel">true</Property>
+        <Property name="jdbc.compareDataType">true</Property>
+        <Property name="jdbc.resource">com/bstek/dorado/sample/jdbc/Sample.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="readOnly">true</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="PRODUCT_NAME">
+        <Property name="dataType">String</Property>
+        <Property name="required">true</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="SUPPLIER_ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="SUPPLIER_NAME">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="CATEGORY_ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="CATEGORY_NAME">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="QUANTITY_PER_UNIT">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="UNIT_PRICE">
+        <Property name="dataType">Double</Property>
+        <Property name="required">true</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="UNITS_IN_STOCK">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="UNITS_ON_ORDER">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="REORDER_LEVEL">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="DISCONTINUED">
+        <Property name="dataType">Integer</Property>
+        <Property name="required">true</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="Condition">
+      <Property name="meta">
+        <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="PRODUCT_NAME">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="CATEGORY_ID">
+        <Property name="dataType">Integer</Property>
+      </PropertyDef>
+      <PropertyDef name="UNIT_PRICE1">
+        <Property name="dataType">Double</Property>
+        <Property name="label">UNIT_PRICE(>=)</Property>
+      </PropertyDef>
+      <PropertyDef name="UNIT_PRICE2">
+        <Property name="dataType">Double</Property>
+        <Property name="label">UNIT_PRICE(&lt;=)</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="Categories">
+      <Property name="metaData">
+        <Property name="jdbc.model">CATEGORIES</Property>
+      </Property>
+      <Property name="meta">
+        <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="ID">
+        <Property name="dataType">Integer</Property>
+      </PropertyDef>
+      <PropertyDef name="CATEGORY_NAME">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="PARENT_ID">
+        <Property name="dataType">Integer</Property>
+      </PropertyDef>
+      <PropertyDef name="DESCRIPTION">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="Suppliers">
+      <Property name="metaData">
+        <Property name="jdbc.model">SUPPLIERS</Property>
+      </Property>
+      <Property name="meta">
+        <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="ID">
+        <Property name="dataType">Integer</Property>
+      </PropertyDef>
+      <PropertyDef name="COMPANY_NAME">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View layout="vbox">
+    <Property name="packages">font-awesome</Property>
+    <DataSet id="dataSetCondition">
+      <ClientEvent name="onReady">self.set(&quot;data&quot;,{});&#xD;
+</ClientEvent>
+      <Property name="dataType">Condition</Property>
+    </DataSet>
+    <DataSet id="dataSet1">
+      <Property name="dataProvider">jdbcProvider</Property>
+      <Property name="dataType">[ProductQuery]</Property>
+      <Property name="pageSize">10</Property>
+    </DataSet>
+    <DataSet id="dataSetCategories">
+      <Property name="dataType">[Categories]</Property>
+      <Property name="dataProvider">jdbcProvider</Property>
+    </DataSet>
+    <DataSet id="dataSetSuppliers">
+      <Property name="dataType">[Suppliers]</Property>
+      <Property name="dataProvider">jdbcProvider</Property>
+    </DataSet>
+    <AutoForm>
+      <Property name="dataSet">dataSetCondition</Property>
+      <Property name="dataType">Condition</Property>
+      <Property name="labelWidth">130</Property>
+      <AutoFormElement>
+        <Property name="name">PRODUCT_NAME</Property>
+        <Property name="property">PRODUCT_NAME</Property>
+        <Property name="label">PRODUCT_NAME(like)</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">CATEGORY_ID</Property>
+        <Property name="property">CATEGORY_ID</Property>
+        <Property name="label">CATEGORY(=)</Property>
+        <Editor>
+          <TextEditor>
+            <Property name="mapping">
+              <Property name="mapValues">${dorado.getDataProvider(&quot;jdbcSample#loadCategories&quot;).getResult()}</Property>
+              <Property name="valueProperty">CATEGORY_NAME</Property>
+              <Property name="keyProperty">ID</Property>
+            </Property>
+            <Property name="trigger">categoryDropDown</Property>
+            <Property name="editable">false</Property>
+          </TextEditor>
+        </Editor>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">UNIT_PRICE1</Property>
+        <Property name="property">UNIT_PRICE1</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">UNIT_PRICE2</Property>
+        <Property name="property">UNIT_PRICE2</Property>
+        <Editor/>
+      </AutoFormElement>
+    </AutoForm>
+    <ToolBar layoutConstraint="top">
+      <DataPilot>
+        <Property name="ignored">false</Property>
+        <Property name="dataSet">dataSet1</Property>
+        <Property name="itemCodes">pages,|,pageSize,+,-</Property>
+      </DataPilot>
+      <Separator/>
+      <ToolBarButton>
+        <ClientEvent name="onClick">var parameter = view.get(&quot;#dataSetCondition.data&quot;);&#xD;
+view.get(&quot;#dataSet1&quot;).set(&quot;parameter&quot;, parameter).flushAsync();</ClientEvent>
+        <Property name="caption">查询</Property>
+        <Property name="iconClass">fa fa-search</Property>
+      </ToolBarButton>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="action">saveAction</Property>
+        <Property name="iconClass">fa fa-save</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dataSet1</Property>
+      <Property name="dataType">ProductQuery</Property>
+      <Property name="showFilterBar">true</Property>
+      <Property name="filterMode">serverSide</Property>
+      <Property name="readOnly">true</Property>
+      <DataColumn name="ID">
+        <Property name="property">ID</Property>
+      </DataColumn>
+      <DataColumn name="PRODUCT_NAME">
+        <Property name="property">PRODUCT_NAME</Property>
+      </DataColumn>
+      <DataColumn name="SUPPLIER_NAME">
+        <Property name="property">SUPPLIER_NAME</Property>
+      </DataColumn>
+      <DataColumn name="CATEGORY_NAME">
+        <Property name="property">CATEGORY_NAME</Property>
+      </DataColumn>
+      <DataColumn name="QUANTITY_PER_UNIT">
+        <Property name="property">QUANTITY_PER_UNIT</Property>
+      </DataColumn>
+      <DataColumn name="UNIT_PRICE">
+        <Property name="property">UNIT_PRICE</Property>
+      </DataColumn>
+      <DataColumn name="UNITS_IN_STOCK">
+        <Property name="property">UNITS_IN_STOCK</Property>
+      </DataColumn>
+      <DataColumn name="UNITS_ON_ORDER">
+        <Property name="property">UNITS_ON_ORDER</Property>
+      </DataColumn>
+      <DataColumn name="REORDER_LEVEL">
+        <Property name="property">REORDER_LEVEL</Property>
+      </DataColumn>
+      <DataColumn name="DISCONTINUED">
+        <Property name="property">DISCONTINUED</Property>
+      </DataColumn>
+    </DataGrid>
+    <AutoForm>
+      <Property name="dataSet">dataSet1</Property>
+      <Property name="dataType">ProductQuery</Property>
+      <Property name="labelWidth">130</Property>
+      <AutoFormElement>
+        <Property name="name">ID</Property>
+        <Property name="property">ID</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">PRODUCT_NAME</Property>
+        <Property name="property">PRODUCT_NAME</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">SUPPLIER_NAME</Property>
+        <Property name="property">SUPPLIER_NAME</Property>
+        <Property name="trigger">suppliersDropDwon</Property>
+        <Editor>
+          <TextEditor>
+            <Property name="editable">false</Property>
+          </TextEditor>
+        </Editor>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">CATEGORY_NAME</Property>
+        <Property name="property">CATEGORY_NAME</Property>
+        <Property name="trigger">categoriesDropDown2</Property>
+        <Editor>
+          <TextEditor>
+            <Property name="editable">false</Property>
+          </TextEditor>
+        </Editor>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">QUANTITY_PER_UNIT</Property>
+        <Property name="property">QUANTITY_PER_UNIT</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">UNIT_PRICE</Property>
+        <Property name="property">UNIT_PRICE</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">UNITS_IN_STOCK</Property>
+        <Property name="property">UNITS_IN_STOCK</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">UNITS_ON_ORDER</Property>
+        <Property name="property">UNITS_ON_ORDER</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">REORDER_LEVEL</Property>
+        <Property name="property">REORDER_LEVEL</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement>
+        <Property name="name">DISCONTINUED</Property>
+        <Property name="property">DISCONTINUED</Property>
+        <Editor>
+          <CheckBox>
+            <Property name="offValue">0</Property>
+            <Property name="onValue">1</Property>
+          </CheckBox>
+        </Editor>
+      </AutoFormElement>
+    </AutoForm>
+    <DataSetDropDown id="categoriesDropDown2">
+      <Property name="dataSet">dataSetCategories</Property>
+      <Property name="displayProperty">CATEGORY_NAME</Property>
+      <Property name="assignmentMap">CATEGORY_ID=ID,CATEGORY_NAME=CATEGORY_NAME</Property>
+      <Property name="autoOpen">true</Property>
+    </DataSetDropDown>
+    <DataSetDropDown id="suppliersDropDwon">
+      <Property name="dataSet">dataSetSuppliers</Property>
+      <Property name="displayProperty">COMPANY_NAME</Property>
+      <Property name="assignmentMap">SUPPLIER_ID=ID,SUPPLIER_NAME=COMPANY_NAME</Property>
+      <Property name="autoOpen">true</Property>
+    </DataSetDropDown>
+    <AutoMappingDropDown id="categoryDropDown">
+      <Property name="editable">false</Property>
+      <Property name="autoOpen">true</Property>
+      <Property name="useEmptyItem">true</Property>
+    </AutoMappingDropDown>
+    <UpdateAction id="saveAction">
+      <Property name="dataResolver">jdbcResolver</Property>
+      <Property name="successMessage">保存成功</Property>
+      <UpdateItem>
+        <Property name="dataSet">dataSet1</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

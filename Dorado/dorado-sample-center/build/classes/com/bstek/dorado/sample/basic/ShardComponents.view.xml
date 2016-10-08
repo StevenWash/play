@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <View>
+    <ToolBar>
+      <GroupStart id="buttons"/>
+      <ToolBarButton caption="添加">
+        <ClientEvent name="onClick">dorado.MessageBox.alert(&quot;您点击了添加按钮.&quot;);</ClientEvent>
+        <Property name="iconClass">fa fa-plus</Property>
+      </ToolBarButton>
+      <ToolBarButton caption="删除">
+        <ClientEvent name="onClick">dorado.MessageBox.alert(&quot;您点击了删除按钮.&quot;);</ClientEvent>
+        <Property name="iconClass">fa fa-minus</Property>
+      </ToolBarButton>
+      <GroupEnd/>
+    </ToolBar>
+    <ListBox id="listbox1" items="One,Two,Three,Four,Five,Six,Seven"/>
+  </View>
+</ViewConfig>

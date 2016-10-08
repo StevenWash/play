@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="padding:2">
+    <Property name="packages">map-China-shanghai,font-awesome</Property>
+    <SplitPanel>
+      <MainControl>
+        <Panel id="provincePanel">
+          <Property name="caption">上海</Property>
+          <Property name="style">
+            <Property name="background-color">sdsd</Property>
+          </Property>
+          <Buttons/>
+          <Children>
+            <Map id="provinceMap">
+              <Property name="data">dorado.widget.map.China.shanghai</Property>
+            </Map>
+          </Children>
+          <Tools/>
+        </Panel>
+      </MainControl>
+      <SideControl>
+        <Panel>
+          <Property name="caption">切换省份</Property>
+          <Buttons/>
+          <Children>
+            <Menu id="provinceMenu">
+              <Property name="floating">false</Property>
+            </Menu>
+          </Children>
+          <Tools/>
+        </Panel>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

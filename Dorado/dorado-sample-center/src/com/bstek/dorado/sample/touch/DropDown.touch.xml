@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="form padding:16;cols:100,*">
+    <DataSet id="dsProducts">
+      <Property name="dataProvider">productInterceptor#findProductsByName</Property>
+      <Property name="dataType">[BaseProduct]</Property>
+    </DataSet>
+    <Label>
+      <Property name="text">层选择</Property>
+    </Label>
+    <TextEditor>
+      <Property name="trigger">ddLayer</Property>
+    </TextEditor>
+    <TouchListDropDown id="ddLayer">
+      <ClientEvent name="onCreate">self.set(&quot;items&quot;, [&quot;East&quot;, &quot;South&quot;, &quot;West&quot;, &quot;North&quot;]);</ClientEvent>
+      <Property name="iconClass">d-trigger-icon-drop</Property>
+      <Property name="items"></Property>
+      <Property name="openMode">layer</Property>
+    </TouchListDropDown>
+    <Label>
+      <Property name="text">气泡选择</Property>
+    </Label>
+    <TextEditor>
+      <Property name="trigger">ddBubble</Property>
+    </TextEditor>
+    <TouchListDropDown id="ddBubble">
+      <ClientEvent name="onCreate">self.set(&quot;items&quot;, [&quot;East&quot;, &quot;South&quot;, &quot;West&quot;, &quot;North&quot;]);</ClientEvent>
+      <Property name="iconClass">d-trigger-icon-drop</Property>
+      <Property name="items"></Property>
+      <Property name="openMode">bubble</Property>
+    </TouchListDropDown>
+    <Label>
+      <Property name="text">数据过滤</Property>
+    </Label>
+    <TextEditor>
+      <Property name="trigger">ddDataSet1</Property>
+    </TextEditor>
+    <TouchDataSetDropDown id="ddDataSet1">
+      <Property name="dataSet">dsProducts</Property>
+      <Property name="dynaFilter">true</Property>
+      <Property name="filterMode">serverSide</Property>
+      <Property name="filterOnTyping">false</Property>
+    </TouchDataSetDropDown>
+    <Label>
+      <Property name="text">日期选择</Property>
+    </Label>
+    <TextEditor>
+      <Property name="trigger">defaultDateDropDown</Property>
+      <Property name="dataType">Date</Property>
+    </TextEditor>
+    <Label>
+      <Property name="text">时间选择</Property>
+    </Label>
+    <TextEditor>
+      <Property name="trigger">defaultTimeDropDown</Property>
+      <Property name="dataType">Time</Property>
+    </TextEditor>
+  </View>
+</ViewConfig>

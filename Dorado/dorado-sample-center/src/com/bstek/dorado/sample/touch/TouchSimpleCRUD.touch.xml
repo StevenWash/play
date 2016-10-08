@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Product" parent="global:Product" meta="x:75;y:45" matchType="com.bstek.dorado.sample.entity.Product">
+      <ClientEvent name="onInsert" signature="layerEdit">layerEdit.show();</ClientEvent>
+      <Property name="creationType">com.bstek.dorado.sample.entity.Product</Property>
+      <PropertyDef name="id" readOnly="true">
+        <Property name="label">编码</Property>
+      </PropertyDef>
+      <PropertyDef name="productName" required="true">
+        <Property name="label">产品名称</Property>
+      </PropertyDef>
+      <PropertyDef name="quantityPerUnit">
+        <Property name="dataType">String</Property>
+        <Property name="label">单位数量</Property>
+      </PropertyDef>
+      <PropertyDef name="unitPrice">
+        <Property name="dataType">float</Property>
+        <Property name="label">单价</Property>
+      </PropertyDef>
+      <PropertyDef name="unitsInStock">
+        <Property name="dataType">int</Property>
+        <Property name="label">库存</Property>
+      </PropertyDef>
+      <PropertyDef name="unitsOnOrder">
+        <Property name="dataType">int</Property>
+        <Property name="label">订货量</Property>
+      </PropertyDef>
+      <PropertyDef name="discontinued">
+        <Property name="dataType">boolean</Property>
+        <Property name="label">已停售</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsProducts" pageSize="10">
+      <Property name="dataProvider">productInterceptor#getAll</Property>
+      <Property name="dataType">[Product]</Property>
+      <Property name="loadMode">lazy</Property>
+    </DataSet>
+    <UpdateAction id="actionSave">
+      <Property name="successMessage">保存成功！</Property>
+      <Property name="dataResolver">simpleCRUD#saveAll</Property>
+      <Property name="caption">Save</Property>
+      <UpdateItem>
+        <Property name="dataPath">!DIRTY_TREE</Property>
+        <Property name="dataSet">dsProducts</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <TouchToolBar layoutConstraint="top">
+      <Property name="ui">default</Property>
+      <Property name="hideMode">display</Property>
+      <TouchDataPilot>
+        <Property name="dataSet">dsProducts</Property>
+        <Property name="itemCodes">&lt;,goto,>,+</Property>
+      </TouchDataPilot>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <Property name="iconClass">icon-save</Property>
+        <Property name="ui">highlight</Property>
+        <Property name="action">actionSave</Property>
+        <Property name="caption">Save</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <TouchDataListBox>
+      <ClientEvent name="onItemTap" signature="layerEdit">layerEdit.show();</ClientEvent>
+      <ClientEvent name="onItemTapHold" signature="menuList">menuList.show();</ClientEvent>
+      <Property name="dataSet">dsProducts</Property>
+      <Property name="property">productName</Property>
+    </TouchDataListBox>
+    <TouchLayer id="layerEdit" layout="css3-vbox">
+      <TouchToolBar layoutConstraint="top">
+        <Property name="caption">Edit Product</Property>
+        <TouchButton>
+          <ClientEvent name="onClick" signature="layerEdit">layerEdit.hide();&#xD;
+</ClientEvent>
+          <Property name="type">back</Property>
+        </TouchButton>
+        <TouchToolBarSpacer/>
+      </TouchToolBar>
+      <AutoForm layoutConstraint="margin:16">
+        <Property name="dataSet">dsProducts</Property>
+        <Property name="ui">optional1</Property>
+        <Property name="labelWidth">120</Property>
+        <AutoFormElement>
+          <Property name="name">id</Property>
+          <Property name="property">id</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">productName</Property>
+          <Property name="property">productName</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">quantityPerUnit</Property>
+          <Property name="property">quantityPerUnit</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">unitPrice</Property>
+          <Property name="property">unitPrice</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">unitsInStock</Property>
+          <Property name="property">unitsInStock</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">unitsOnOrder</Property>
+          <Property name="property">unitsOnOrder</Property>
+          <Editor>
+            <TouchNumberSpinner>
+              <Property name="width">120</Property>
+            </TouchNumberSpinner>
+          </Editor>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">discontinued</Property>
+          <Property name="property">discontinued</Property>
+          <Property name="editorType">touch.Toggle</Property>
+          <Editor/>
+        </AutoFormElement>
+      </AutoForm>
+    </TouchLayer>
+    <TouchMenu id="menuList">
+      <Property name="center">true</Property>
+      <Property name="modal">true</Property>
+      <TouchMenuItem>
+        <ClientEvent name="onClick" signature="dsProducts">dorado.MessageBox.confirm(&quot;确认要删除当前记录吗？&quot;, function(){&#xD;
+	dsProducts.getData().remove();&#xD;
+});</ClientEvent>
+        <Property name="caption">Delete</Property>
+        <Property name="iconClass">icon-remove</Property>
+      </TouchMenuItem>
+    </TouchMenu>
+  </View>
+</ViewConfig>

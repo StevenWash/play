@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Province">
+      <Reference name="id">
+        <Property name="label">行政区域编码</Property>
+      </Reference>
+      <Reference name="name">
+        <Property name="label">名称</Property>
+      </Reference>
+      <Reference name="description">
+        <Property name="label">详细</Property>
+      </Reference>
+    </DataType>
+  </Model>
+  <View layout="padding:20">
+    <Property name="title"> 中国地图</Property>
+    <SplitPanel>
+      <Property name="position">70%</Property>
+      <MainControl>
+        <SplitPanel>
+          <Property name="direction">top</Property>
+          <Property name="position">50%</Property>
+          <MainControl>
+            <Panel>
+              <Property name="caption">永久高亮省份</Property>
+              <Buttons/>
+              <Children>
+                <DataGrid id="gridHighlight">
+                  <Property name="dataSet">dsHighlight</Property>
+                  <Property name="readOnly">false</Property>
+                  <Property name="selectionMode">multiRows</Property>
+                  <RowSelectorColumn/>
+                  <DataColumn name="name">
+                    <Property name="property">name</Property>
+                    <Property name="readOnly">true</Property>
+                    <Property name="align">center</Property>
+                  </DataColumn>
+                </DataGrid>
+              </Children>
+              <Tools/>
+            </Panel>
+          </MainControl>
+          <SideControl>
+            <Panel>
+              <Property name="caption"> 说明</Property>
+              <Buttons/>
+              <Children>
+                <AutoForm>
+                  <Property name="dataSet">dsProvince</Property>
+                  <Property name="cols">*</Property>
+                  <AutoFormElement>
+                    <Property name="name">id</Property>
+                    <Property name="property">id</Property>
+                    <Editor/>
+                  </AutoFormElement>
+                  <AutoFormElement>
+                    <Property name="name">name</Property>
+                    <Property name="property">name</Property>
+                    <Editor/>
+                  </AutoFormElement>
+                  <AutoFormElement>
+                    <Property name="name">description</Property>
+                    <Property name="property">description</Property>
+                    <Property name="editorType">TextArea</Property>
+                    <Property name="height">150</Property>
+                    <Editor/>
+                  </AutoFormElement>
+                </AutoForm>
+              </Children>
+              <Tools/>
+            </Panel>
+          </SideControl>
+        </SplitPanel>
+      </MainControl>
+      <SideControl>
+        <Panel>
+          <Property name="caption">中国地图</Property>
+          <Buttons/>
+          <Children>
+            <Container>
+              <ToolBar>
+                <ToolBarButton id="btnZoomIn">
+                  <Property name="caption">放大</Property>
+                  <Property name="icon">url(>skin>common/icons.gif) -60px -100px</Property>
+                </ToolBarButton>
+                <Separator/>
+                <ToolBarButton id="btnZoomOut">
+                  <Property name="caption">缩小</Property>
+                  <Property name="icon">url(>skin>common/icons.gif) -80px -100px</Property>
+                </ToolBarButton>
+                <Separator/>
+              </ToolBar>
+              <Map id="chinaMap">
+                <Property name="scalable">true</Property>
+                <Property name="showTexts">true</Property>
+                <Property name="stroke">#fff</Property>
+                <Property name="tags">map</Property>
+                <Property name="fill">#96Cee6</Property>
+                <SubMap id="provinceMap">
+                  <ClientEvent name="onRenderElement">arg.element.color = Raphael.getColor();</ClientEvent>
+                  <ClientEvent name="onElementMouseOut">arg.element.attr({
+		fill : self._fill,
+		stroke : self._stroke
+	});</ClientEvent>
+                  <Property name="fill">#96Cee6</Property>
+                  <Property name="stroke">#fff</Property>
+                  <Property name="tags">map</Property>
+                </SubMap>
+              </Map>
+            </Container>
+            <Tip id="mapTip">
+              <Property name="content">&lt;div>试试推动鼠标滚动轴！&lt;/div>&lt;div>试试地图拖动！&lt;/div></Property>
+              <Property name="caption">小提示</Property>
+              <Property name="closeable">true</Property>
+              <Property name="arrowAlign">left</Property>
+              <Property name="arrowDirection">bottom</Property>
+              <Property name="icon">INFO</Property>
+              <Property name="hideAnimateType">fade</Property>
+            </Tip>
+          </Children>
+          <Tools/>
+        </Panel>
+      </SideControl>
+    </SplitPanel>
+    <DataSet id="dsProvince">
+      <Property name="dataType">[Province]</Property>
+    </DataSet>
+    <DataSet id="dsHighlight">
+      <Property name="dataType">[Province]</Property>
+    </DataSet>
+  </View>
+</ViewConfig>

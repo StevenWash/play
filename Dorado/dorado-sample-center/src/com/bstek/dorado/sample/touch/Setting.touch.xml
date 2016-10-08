@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Setting">
+      <PropertyDef name="nickname">
+        <Property name="label">昵称</Property>
+      </PropertyDef>
+      <PropertyDef name="description">
+        <Property name="label">个人描述</Property>
+      </PropertyDef>
+      <PropertyDef name="autoLogin">
+        <Property name="label">自动登录</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="rss">
+        <Property name="label">RSS</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="email">
+        <Property name="label">电子邮件</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="flightMode">
+        <Property name="label">飞行模式</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="downMode">
+        <Property name="label">省电模式</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="tone">
+        <Property name="label">铃声</Property>
+      </PropertyDef>
+      <PropertyDef name="volume">
+        <Property name="label">音量</Property>
+        <Property name="dataType">int</Property>
+      </PropertyDef>
+      <PropertyDef name="vibrate">
+        <Property name="label">震动</Property>
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsSetting">
+      <ClientEvent name="onCreate">self.insert({&#xD;
+	nickname: &quot;Damon Hill&quot;,&#xD;
+	description: &quot;努力学习Dorado7中...&quot;,&#xD;
+	rss: true,&#xD;
+	downMode: true,&#xD;
+	tone: &quot;Birdsong&quot;,&#xD;
+	volume: 56,&#xD;
+	vibrate: true&#xD;
+});</ClientEvent>
+      <Property name="dataType">Setting</Property>
+    </DataSet>
+    <TouchToolBar>
+      <Property name="caption">设置</Property>
+      <TouchButtonGroup>
+        <Property name="ui">optional1</Property>
+        <Property name="currentButton">${param.ui==&quot;optional1&quot;?1:0}</Property>
+        <TouchButton>
+          <ClientEvent name="onClick">open(&quot;com.bstek.dorado.sample.Setting.d?ui=default&quot;, &quot;_self&quot;);</ClientEvent>
+          <Property name="caption">Default</Property>
+        </TouchButton>
+        <TouchButton>
+          <ClientEvent name="onClick">open(&quot;com.bstek.dorado.sample.Setting.d?ui=optional1&quot;, &quot;_self&quot;);</ClientEvent>
+          <Property name="caption">Optional1</Property>
+        </TouchButton>
+      </TouchButtonGroup>
+      <TouchToolBarSpacer/>
+      <TouchButton>
+        <ClientEvent name="onClick" signature="dsSetting">var setting = dsSetting.getData().toJSON();&#xD;
+dorado.MessageBox.alert(JSON.stringify(setting, undefined, 2));</ClientEvent>
+        <Property name="caption">保存</Property>
+        <Property name="ui">highlight</Property>
+      </TouchButton>
+    </TouchToolBar>
+    <Container layout="css3-vbox padding:16">
+      <Property name="containerUi">optional1</Property>
+      <Label>
+        <Property name="text">账户</Property>
+        <Property name="ui">h3-optional1</Property>
+      </Label>
+      <AutoForm>
+        <Property name="dataSet">dsSetting</Property>
+        <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerNickname">layerNickname.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="property">nickname</Property>
+          <Property name="iconClass">icon-user</Property>
+        </SettingItem>
+        <SettingItem>
+          <Property name="type">checkable</Property>
+          <Property name="hint">是否在启动系统后自动登录</Property>
+          <Property name="property">autoLogin</Property>
+          <Property name="iconClass">icon-key</Property>
+        </SettingItem>
+      </AutoForm>
+      <Label>
+        <Property name="text">发布和通知</Property>
+        <Property name="ui">h3-optional1</Property>
+      </Label>
+      <AutoForm>
+        <Property name="dataSet">dsSetting</Property>
+        <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+        <SettingItem>
+          <Property name="type">toggleable</Property>
+          <Property name="property">rss</Property>
+          <Property name="iconClass">icon-rss</Property>
+        </SettingItem>
+        <SettingItem>
+          <Property name="type">toggleable</Property>
+          <Property name="property">email</Property>
+          <Property name="iconClass">icon-envelope</Property>
+        </SettingItem>
+      </AutoForm>
+      <Label>
+        <Property name="text">设备</Property>
+        <Property name="ui">h3-optional1</Property>
+      </Label>
+      <AutoForm>
+        <Property name="dataSet">dsSetting</Property>
+        <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerSound">layerSound.show();</ClientEvent>
+          <Property name="label">声音</Property>
+          <Property name="type">expandable</Property>
+          <Property name="iconClass">icon-volume-up</Property>
+        </SettingItem>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">expandable</Property>
+          <Property name="label">显示</Property>
+          <Property name="iconClass">icon-desktop</Property>
+        </SettingItem>
+        <SettingItem>
+          <Property name="type">toggleable</Property>
+          <Property name="property">flightMode</Property>
+          <Property name="iconClass">icon-plane</Property>
+        </SettingItem>
+        <SettingItem>
+          <Property name="type">toggleable</Property>
+          <Property name="property">downMode</Property>
+          <Property name="iconClass">icon-circle-arrow-down</Property>
+        </SettingItem>
+      </AutoForm>
+      <Label>
+        <Property name="text">个人</Property>
+        <Property name="ui">h3-optional1</Property>
+      </Label>
+      <AutoForm>
+        <Property name="dataSet">dsSetting</Property>
+        <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="label">定位服务</Property>
+          <Property name="iconClass">icon-map-marker</Property>
+        </SettingItem>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="label">安全</Property>
+          <Property name="iconClass">icon-unlock</Property>
+        </SettingItem>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="label">语言和输入</Property>
+          <Property name="iconClass">icon-globe</Property>
+        </SettingItem>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="label">云</Property>
+          <Property name="iconClass">icon-cloud</Property>
+        </SettingItem>
+        <SettingItem>
+          <ClientEvent name="onClick" signature="layerAlert">layerAlert.show();</ClientEvent>
+          <Property name="type">text</Property>
+          <Property name="label">重置</Property>
+          <Property name="iconClass">icon-undo</Property>
+        </SettingItem>
+      </AutoForm>
+    </Container>
+    <TouchLayer id="layerNickname">
+      <Property name="containerUi">optional1</Property>
+      <TouchToolBar>
+        <Property name="caption">昵称</Property>
+        <TouchButton>
+          <Property name="type">back</Property>
+        </TouchButton>
+      </TouchToolBar>
+      <Container layout="css3-vbox padding:16">
+        <Property name="containerUi">optional1</Property>
+        <AutoForm>
+          <Property name="dataSet">dsSetting</Property>
+          <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+          <AutoFormElement>
+            <Property name="property">nickname</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">description</Property>
+            <Property name="editorType">TextArea</Property>
+            <Property name="height">80</Property>
+            <Editor/>
+          </AutoFormElement>
+        </AutoForm>
+      </Container>
+    </TouchLayer>
+    <TouchLayer id="layerSound">
+      <TouchToolBar>
+        <Property name="caption">声音</Property>
+        <TouchButton>
+          <Property name="type">back</Property>
+        </TouchButton>
+      </TouchToolBar>
+      <Container layout="css3-vbox padding:16">
+        <Property name="containerUi">optional1</Property>
+        <AutoForm>
+          <Property name="dataSet">dsSetting</Property>
+          <Property name="ui">${util.defaultValue(param.ui, &quot;default&quot;)}</Property>
+          <SettingItem>
+            <ClientEvent name="onClick" signature="layerTone">layerTone.show();</ClientEvent>
+            <Property name="type">text</Property>
+            <Property name="property">tone</Property>
+          </SettingItem>
+          <SettingItem>
+            <ClientEvent name="onClick" signature="layerVolume">layerVolume.show();</ClientEvent>
+            <Property name="type">text</Property>
+            <Property name="property">volume</Property>
+          </SettingItem>
+          <SettingItem>
+            <Property name="property">vibrate</Property>
+            <Property name="type">toggleable</Property>
+          </SettingItem>
+        </AutoForm>
+      </Container>
+      <TouchLayer id="layerTone">
+        <ClientEvent name="onShow" signature="dsSetting, listTone">var tones = listTone.get(&quot;items&quot;);&#xD;
+var tone = dsSetting.get(&quot;data&quot;).get(&quot;tone&quot;);&#xD;
+var index = tones.indexOf(tone);&#xD;
+listTone.set(&quot;currentIndex&quot;, index);&#xD;
+</ClientEvent>
+        <Property name="containerUi">optional1</Property>
+        <TouchToolBar>
+          <Property name="caption">铃声</Property>
+          <TouchButton>
+            <ClientEvent name="onClick" signature="layerTone, dsSetting, listTone">dsSetting.get(&quot;data&quot;).set(&quot;tone&quot;, listTone.get(&quot;currentItem&quot;));&#xD;
+layerTone.hide();</ClientEvent>
+            <Property name="type">back</Property>
+            <Property name="caption">设置</Property>
+          </TouchButton>
+        </TouchToolBar>
+        <TouchListBox id="listTone">
+          <ClientEvent name="onCreate">self.set(&quot;items&quot;, [&#xD;
+	&quot;静音&quot;,&#xD;
+	&quot;Basic bell&quot;,&#xD;
+	&quot;Basic tone&quot;,&#xD;
+	&quot;Beep-beep&quot;,&#xD;
+	&quot;Birdsong&quot;,&#xD;
+	&quot;Chime&quot;,&#xD;
+	&quot;Fog on the water&quot;,&#xD;
+	&quot;Gentle spring rain&quot;,&#xD;
+	&quot;Ice blue tone&quot;,&#xD;
+	&quot;Mirage of you&quot;,&#xD;
+	&quot;Moonlit beach&quot;,&#xD;
+	&quot;Phantom&quot;,&#xD;
+	&quot;Pure tone&quot;,&#xD;
+	&quot;Quantum bell&quot;,&#xD;
+	&quot;Rain drop&quot;,&#xD;
+	&quot;Rolling tone&quot;,&#xD;
+	&quot;Underground pool&quot;,&#xD;
+	&quot;Walk on the seaside&quot;&#xD;
+]);&#xD;
+</ClientEvent>
+        </TouchListBox>
+      </TouchLayer>
+      <TouchLayer id="layerVolume">
+        <ClientEvent name="onShow" signature="dsSetting, sliderVolume">var volume = dsSetting.get(&quot;data&quot;).get(&quot;volume&quot;);&#xD;
+sliderVolume.set(&quot;value&quot;, volume);</ClientEvent>
+        <TouchToolBar>
+          <Property name="caption">音量</Property>
+          <TouchButton>
+            <ClientEvent name="onClick" signature="layerVolume, dsSetting, sliderVolume">dsSetting.get(&quot;data&quot;).set(&quot;volume&quot;, sliderVolume.get(&quot;value&quot;));&#xD;
+layerVolume.hide();</ClientEvent>
+            <Property name="type">back</Property>
+            <Property name="caption">设置</Property>
+          </TouchButton>
+        </TouchToolBar>
+        <Container layout="css3-vbox padding:16">
+          <Property name="containerUi">optional1</Property>
+          <Slider id="sliderVolume"/>
+        </Container>
+      </TouchLayer>
+    </TouchLayer>
+    <TouchLayer id="layerAlert">
+      <TouchToolBar layoutConstraint="top">
+        <TouchButton>
+          <Property name="type">back</Property>
+        </TouchButton>
+        <TouchToolBarSpacer/>
+      </TouchToolBar>
+      <Container layout="css3-vbox align:center;pack:center">
+        <Property name="containerUi">optional1</Property>
+        <Label>
+          <Property name="text">我只是个例子，这里没啥</Property>
+        </Label>
+      </Container>
+    </TouchLayer>
+  </View>
+</ViewConfig>

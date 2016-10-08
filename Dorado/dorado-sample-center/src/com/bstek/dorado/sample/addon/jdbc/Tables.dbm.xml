@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbModel>
+  <Table name="CATEGORIES" nativeTable="CATEGORIES">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">CATEGORIES</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="CATEGORY_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PARENT_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="DESCRIPTION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="CATEGORY_EXAMPLE_RELATIONS" nativeTable="CATEGORY_EXAMPLE_RELATIONS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">CATEGORY_EXAMPLE_RELATIONS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="CATEGORY_ID">
+        <Property name="remarks"></Property>
+        <Property name="jdbcType">INTEGER-Integer</Property>
+      </KeyColumn>
+      <KeyColumn name="EXAMPLE_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </KeyColumn>
+      <Column name="SORT_FLAG">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="CUSTOMERS" nativeTable="CUSTOMERS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">CUSTOMERS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </KeyColumn>
+      <Column name="COMPANY_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CONTACT_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CONTACT_TITLE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ADDRESS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CITY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REGION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="POSTAL_CODE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="COUNTRY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PHONE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="FAX">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="EMPLOYEES" nativeTable="EMPLOYEES">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">EMPLOYEES</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="LAST_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="FIRST_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="TITLE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="TITLE_OF_COURTESY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SEX">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="BIRTH_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="HIRE_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ADDRESS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CITY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REGION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="POSTAL_CODE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="COUNTRY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PHONE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="EXTENSION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REPORTS_TO">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="NOTES">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PHOTO_PATH">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="EXAMPLES" nativeTable="EXAMPLES">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">EXAMPLES</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="LABEL">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SORT_FLAG">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="IS_NEW">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="IS_HOT">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="AUTHOR">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CREATE_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="LAST_MODIFY">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ICON">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="URL">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="IS_EMBEDDED">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="EMBED_WIDTH">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="EMBED_HEIGHT">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="TAGS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUMMARY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="EXAMPLE_CATEGORIES" nativeTable="EXAMPLE_CATEGORIES">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">EXAMPLE_CATEGORIES</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="CATEGORY_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="LABEL">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="IS_NEW">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="IS_HOT">
+        <Property name="jdbcType">BOOLEAN-Boolean</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SORT_FLAG">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ICON">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="URL">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="TAGS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUMMARY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="EXAMPLE_SOURCES" nativeTable="EXAMPLE_SOURCES">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">EXAMPLE_SOURCES</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="EXAMPLE_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SORT_FLAG">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="LABEL">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PATH">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUMMARY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="ORDERS" nativeTable="ORDERS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">ORDERS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="CUSTOMER_ID">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="EMPLOYEE_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ORDER_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REQUIRED_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIPPED_DATE">
+        <Property name="jdbcType">DATE-Date</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_VIA">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="FREIGHT">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_ADDRESS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_CITY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_REGION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_POSTAL_CODE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SHIP_COUNTRY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="ORDER_DETAILS" nativeTable="ORDER_DETAILS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">ORDER_DETAILS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="ORDER_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PRODUCT_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNIT_PRICE">
+        <Property name="jdbcType">DOUBLE-Double</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="QUANTITY">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="DISCOUNT">
+        <Property name="jdbcType">DOUBLE-Double</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="PRODUCTS" nativeTable="PRODUCTS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">PRODUCTS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="PRODUCT_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUPPLIER_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CATEGORY_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="QUANTITY_PER_UNIT">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNIT_PRICE">
+        <Property name="jdbcType">DOUBLE-Double</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNITS_IN_STOCK">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNITS_ON_ORDER">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REORDER_LEVEL">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="DISCONTINUED">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="SHIPPERS" nativeTable="SHIPPERS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">SHIPPERS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="COMPANY_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PHONE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+  <Table name="SUPPLIERS" nativeTable="SUPPLIERS">
+    <Property name="remarks"></Property>
+    <Property name="meta">
+      <Property name="dataSource">default</Property>
+      <Property name="tableName">SUPPLIERS</Property>
+      <Property name="namespace">PUBLIC</Property>
+    </Property>
+    <Columns>
+      <KeyColumn name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+        <Property name="keyGenerator">SEQUENCE</Property>
+        <Property name="keyParameter">SEQ_ID</Property>
+      </KeyColumn>
+      <Column name="COMPANY_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CONTACT_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CONTACT_TITLE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="ADDRESS">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CITY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REGION">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="POSTAL_CODE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="COUNTRY">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PHONE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="FAX">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="HOME_PAGE">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+  </Table>
+</DbModel>

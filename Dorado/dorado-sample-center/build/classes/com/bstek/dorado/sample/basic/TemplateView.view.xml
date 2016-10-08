@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <View>
+    <PageBanner caption="${argument.caption}" layoutConstraint="top"/>
+    <ToolBar layoutConstraint="top">
+      <DataPilot dataSet="${argument.dataSet}"/>
+      <Separator/>
+      <PlaceHolder id="toolbarContent"/>
+      <ToolBarButton action="${argument.saveAction}"/>
+      <Fill/>
+      <ToolBarButton caption="点击此按钮查看视图模板的效果">
+        <ClientEvent name="onClick">window.open(&quot;com.bstek.dorado.sample.basic.TemplateView.d&quot;, &quot;_blank&quot;);</ClientEvent>
+        <Property name="iconClass">fa fa-search</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <PlaceHolder id="mainContent"/>
+  </View>
+</ViewConfig>

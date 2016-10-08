@@ -1,0 +1,63 @@
+.item {
+	position: relative;
+	display: -webkit-box;
+	min-height: 60px;
+}
+
+.item .image {
+	display: -webkit-box;
+	width: 60px;
+	height: 60px;
+	margin-right: 12px;
+}
+
+.item .text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-flex: 1;
+	height: 100%;
+}
+
+.item .text .label {
+	display: -webkit-box;
+	font-size: 110%;
+}
+
+.item .text .price {
+	display: -webkit-box;
+	-webkit-box-flex: 1;
+	font-size: 140%;
+	color: #ff6633;
+	padding: 4px 0;
+}
+
+.item .text .bottom {
+	display: -webkit-box;
+	font-size: 80%;
+}
+
+.item .text .bottom .dealer {
+	display: -webkit-box;
+	-webkit-box-flex: 1;
+	color: gray;
+}
+
+.item .text .bottom .consumerProfile {
+	display: -webkit-box;
+}
+
+.d-template-field {
+	-webkit-box-orient: vertical;
+}
+
+.d-template-field .label {
+	display: -webkit-box;
+	font-size: 110%;
+}
+
+.d-template-field .price {
+	display: -webkit-box;
+	font-size: 140%;
+	color: #ff6633;
+	padding: 8px 0 8px 0;
+}

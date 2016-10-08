@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+.intro-title {
+	padding-left:20px;
+	font-size: 25px;
+	font-family: inherit;
+	font-weight: bold;
+	color: #515151;
+}
+
+.intro-content {
+	padding-left: 20px;
+	min-width: 300px;
+}
+
+.intro-content h3 {
+	font-size: 16px;
+	color: #FB8B0D;
+}
+
+.intro-content .content {
+	padding-left: 20px;
+}
+.intro-content a{
+	color: #326ca6;
+}
+
+.intro-content .description {
+	margin-left: 12px;
+	font-style: italic;
+	color: #434343;
+}
+.intro-success {
+	padding-left:20px;
+	width: 300px;
+}
+.intro-success h1{
+	font-size:35px;
+	color: #549d6b;
+}
+
+.intro-success a{
+	color: #326ca6;
+}

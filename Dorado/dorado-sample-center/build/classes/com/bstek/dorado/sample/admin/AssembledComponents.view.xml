@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <View>
+    <HtmlContainer id="PageBanner" layout="Anchor" height="38">
+      <Property name="contentOverflow">hidden</Property>
+      <Property name="style">
+        <Property name="background">#00b2f5</Property>
+      </Property>
+      <Label layoutConstraint="left:15; top:6" text="${virtualProperty.caption}">
+        <Property name="style">
+          <Property name="color">#ffffff</Property>
+          <Property name="font-size">13pt</Property>
+          <Property name="font-style">italic</Property>
+          <Property name="white-space">nowrap</Property>
+        </Property>
+      </Label>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

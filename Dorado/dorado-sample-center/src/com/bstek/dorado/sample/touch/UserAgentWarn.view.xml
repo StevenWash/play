@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="vbox padding:16">
+    <HtmlContainer>
+      <Property name="content">&lt;h1 class=&quot;title&quot;>关于浏览器的警告&lt;/h1>&#xD;
+&lt;hr>&#xD;
+&lt;p class=&quot;message&quot;>&#xD;
+您将要访问是专为移动设备设计的页面，建议您通过iPhone、iPad及各种Andriod移动设备来浏览（目前暂不支持Windows Phone和Windows8移动设备）。&#xD;
+&lt;/p>&#xD;
+&lt;p class=&quot;message&quot;>&#xD;
+您可以使用移动设备扫描下面的二维码以快速进入Dorado7 Touch的示例中心。&#xD;
+&lt;/p></Property>
+    </HtmlContainer>
+    <QRCodeImage>
+      <ClientEvent name="onReady">var path = location.protocol + &quot;//&quot; + location.host + (location.port ? (':' + location.port) : &quot;&quot;) + dorado.Setting[&quot;common.contextPath&quot;] + &quot;touch&quot;;&#xD;
+self.set(&quot;data&quot;, {&#xD;
+	text: path&#xD;
+}).generateQRCode();</ClientEvent>
+      <Property name="height">200</Property>
+      <Property name="width">200</Property>
+      <Property name="style">
+        <Property name="border">none</Property>
+      </Property>
+    </QRCodeImage>
+    <HtmlContainer>
+      <Property name="content">&lt;p class=&quot;message&quot;>&#xD;
+如果您打算继续使用PC来浏览这些示例，目前他们仅支持Chrome和Safari浏览器，并且您看到的将只是与在移动设备上&lt;b>相似而并不相同&lt;/b>的演示效果。&#xD;
+&lt;br>&#xD;
+&lt;a href=&quot;com.bstek.dorado.sample.touch.TouchMain.d&quot; target=&quot;_self&quot;>继续打开演示页面&lt;/a>&#xD;
+&lt;/p></Property>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

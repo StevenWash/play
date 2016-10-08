@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Map id="chinaMap" layoutConstraint="center">
+      <Property name="showTexts">true</Property>
+    </Map>
+  </View>
+</ViewConfig>

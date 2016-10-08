@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="scatterData">
+      <PropertyDef name="x"/>
+      <PropertyDef name="y"/>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsScatter1">
+      <Property name="dataProvider">touchChartDataProvider#getScatterData1</Property>
+      <Property name="dataType">[scatterData]</Property>
+    </DataSet>
+    <DataSet id="dsScatter2">
+      <Property name="dataProvider">touchChartDataProvider#getScatterData2</Property>
+      <Property name="dataType">[scatterData]</Property>
+    </DataSet>
+    <Chart>
+      <Property name="legend">
+        <Property name="visible">true</Property>
+      </Property>
+      <Property name="title">Test</Property>
+      <Axes>
+        <NumbericAxis>
+          <Property name="position">left</Property>
+          <Property name="min">0</Property>
+          <Property name="title">test</Property>
+        </NumbericAxis>
+        <NumbericAxis>
+          <Property name="position">bottom</Property>
+        </NumbericAxis>
+      </Axes>
+      <Series>
+        <Scatter>
+          <Property name="bindingConfig">
+            <Property name="xProperty">x</Property>
+            <Property name="yProperty">y</Property>
+          </Property>
+          <Property name="dataSet">dsScatter1</Property>
+        </Scatter>
+        <Scatter>
+          <Property name="dataSet">dsScatter2</Property>
+          <Property name="bindingConfig">
+            <Property name="xProperty">x</Property>
+            <Property name="yProperty">y</Property>
+          </Property>
+        </Scatter>
+      </Series>
+    </Chart>
+  </View>
+</ViewConfig>

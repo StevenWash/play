@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="TouchExample">
+      <PropertyDef name="id"/>
+      <PropertyDef name="label"/>
+      <PropertyDef name="url"/>
+      <PropertyDef name="summary"/>
+      <PropertyDef name="examples">
+        <Property name="dataType">[SELF]</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsExamples">
+      <Property name="dataProvider">touchMain#getExamples</Property>
+      <Property name="dataType">[TouchExample]</Property>
+    </DataSet>
+    <TouchStack id="stack">
+      <Container>
+        <TouchToolBar>
+          <Property name="caption">示例列表</Property>
+          <TouchButton id="buttonBack">
+            <Property name="type">back</Property>
+            <Property name="hideMode">display</Property>
+            <Property name="visible">false</Property>
+          </TouchButton>
+          <TouchToolBarSpacer/>
+          <TouchButton id="buttonQrCode">
+            <Property name="iconClass">icon-qrcode</Property>
+            <Property name="caption">二维码</Property>
+          </TouchButton>
+        </TouchToolBar>
+        <Container>
+          <TouchDataNestedList id="listExample">
+            <Property name="dataSet">dsExamples</Property>
+            <Property name="showCaptionBar">false</Property>
+            <Property name="backButton">buttonBack</Property>
+            <BindingConfigs>
+              <BindingConfig>
+                <Property name="labelProperty">label</Property>
+                <Property name="recursive">true</Property>
+                <Property name="childrenProperty">examples</Property>
+              </BindingConfig>
+            </BindingConfigs>
+            <Tools/>
+          </TouchDataNestedList>
+        </Container>
+        <TouchDialog id="dialogQrCode" layout="css3-vbox align:center">
+          <Property name="center">true</Property>
+          <Property name="caption">本站点二维码</Property>
+          <Property name="modal">true</Property>
+          <Property name="closeable">true</Property>
+          <Property name="width">240</Property>
+          <Buttons/>
+          <Children>
+            <QRCodeImage id="qrcode">
+              <Property name="width">200</Property>
+              <Property name="height">200</Property>
+              <Property name="style">
+                <Property name="border">none</Property>
+              </Property>
+            </QRCodeImage>
+          </Children>
+          <Tools/>
+        </TouchDialog>
+      </Container>
+      <IFrame id="frameExample"/>
+    </TouchStack>
+  </View>
+</ViewConfig>

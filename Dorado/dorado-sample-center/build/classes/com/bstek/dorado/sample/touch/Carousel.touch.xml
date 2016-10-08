@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="anchor">
+    <DataSet id="dsShoes">
+      <ClientEvent name="onReady" signature="dsShoes,carousel1,carousel2">var images = [];&#xD;
+dsShoes.queryData(&quot;.image&quot;).each(function(image) {&#xD;
+	images.push({&#xD;
+		$type: &quot;Image&quot;,&#xD;
+		image: image,&#xD;
+		stretchMode: &quot;keepRatio&quot;&#xD;
+	});&#xD;
+});&#xD;
+carousel1.set(&quot;controls&quot;, images);&#xD;
+carousel2.set(&quot;controls&quot;, images.reverse());</ClientEvent>
+      <Property name="dataProvider">shoesInterceptor#getAll</Property>
+      <Property name="dataType">[Shoes]</Property>
+      <Property name="loadMode">preload</Property>
+    </DataSet>
+    <TouchCarousel id="carousel1" layoutConstraint="left:0;right:0;top:0">
+      <Property name="height">50%</Property>
+    </TouchCarousel>
+    <TouchCarousel id="carousel2" layoutConstraint="left:0;right:0;bottom:0">
+      <Property name="orientation">vertical</Property>
+      <Property name="height">50%</Property>
+    </TouchCarousel>
+  </View>
+</ViewConfig>

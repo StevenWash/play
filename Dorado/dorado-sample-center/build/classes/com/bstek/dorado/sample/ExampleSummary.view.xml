@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Model>
+    <DataType name="Example" parent="global:Example">
+      <PropertyDef name="sources" dataType="[ExampleSource]"/>
+    </DataType>
+  </Model>
+  <View layout="Anchor" pageTemplate="com/bstek/dorado/sample/ExampleSummary.html" title="示例简述">
+    <Property name="packages">font-awesome,jquery-cookie</Property>
+    <DataSet id="dsExample" dataProvider="exampleSummary#getExample" loadMode="preload">
+      <Property name="dataType">Example</Property>
+      <Property name="parameter">${param.exampleId}</Property>
+    </DataSet>
+    <SimpleButton className="button-run">
+      <Property name="renderTo">#buttonRunHolder</Property>
+    </SimpleButton>
+    <IFrame id="iframeExample">
+      <Property name="renderTo">#iFrameHolder</Property>
+      <Property name="style">
+        <Property name="borderStyle">none</Property>
+      </Property>
+      <Property name="visible">false</Property>
+    </IFrame>
+    <Dialog id="dialogQrCode" layout="anchor padding:20">
+      <Property name="width">500</Property>
+      <Property name="height">220</Property>
+      <Property name="caption">二维码</Property>
+      <Property name="center">true</Property>
+      <Buttons/>
+      <Children>
+        <Container layout="vbox pack:center;align:center" layoutConstraint="left:0;top:0;bottom:0">
+          <Property name="width">50%</Property>
+          <QRCodeImage id="qrcodeExample">
+            <Property name="height">100</Property>
+            <Property name="width">100</Property>
+          </QRCodeImage>
+          <Label>
+            <Property name="text">示例地址</Property>
+            <Property name="style">
+              <Property name="text-align">center</Property>
+            </Property>
+          </Label>
+        </Container>
+        <Container layout="vbox pack:center;align:center" layoutConstraint="bottom:0;right:0;top:0">
+          <Property name="width">50%</Property>
+          <QRCodeImage id="qrcodeSummary">
+            <Property name="height">100</Property>
+            <Property name="width">100</Property>
+          </QRCodeImage>
+          <Label>
+            <Property name="text">本框架地址</Property>
+            <Property name="style">
+              <Property name="text-align">center</Property>
+            </Property>
+          </Label>
+        </Container>
+      </Children>
+      <Tools/>
+    </Dialog>
+    <Intro id="intro1">
+      <Property name="ignored">true</Property>
+      <Property name="showStepNumbers">false</Property>
+      <Property name="doneLabel">跳出</Property>
+      <Property name="skipLabel">跳出</Property>
+    </Intro>
+  </View>
+</ViewConfig>

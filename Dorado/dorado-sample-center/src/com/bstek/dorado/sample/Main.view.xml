@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Model>
+    <DataType name="ExampleCategory" parent="global:ExampleCategory">
+      <PropertyDef name="hasChild">
+        <Property name="dataType">boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="childCount">
+        <Property name="dataType">int</Property>
+      </PropertyDef>
+      <Reference name="categories" dataProvider="main#getCategories" dataType="[SELF]" parameter="$${this.id}"/>
+      <Reference name="examples" dataProvider="main#getExamplesByCategoryId" dataType="[Example]" parameter="$${this.id}"/>
+    </DataType>
+    <DataType name="Example" parent="global:Example">
+      <PropertyDef name="sortFlag" dataType="int"/>
+      <PropertyDef name="sources" dataType="[ExampleSource]"/>
+    </DataType>
+    <DataType name="SearchResult">
+      <Property name="creationType">com.bstek.dorado.sample.SearchResult</Property>
+      <Property name="autoCreatePropertyDefs">true</Property>
+    </DataType>
+  </Model>
+  <View layout="Anchor" title="Dorado7 Sample Center">
+    <Property name="packages">font-awesome</Property>
+    <PageBanner layoutConstraint="left:0; right:0; top:0">
+      <Property name="caption">Dorado 7 Sample Center</Property>
+    </PageBanner>
+    <SplitPanel layoutConstraint="left:0;right:0;top:0;anchorTop:previous;bottom:0" position="260">
+      <MainControl>
+        <IFrame id="frameExample"/>
+      </MainControl>
+      <SideControl>
+        <Accordion id="accordion">
+          <Section>
+            <Property name="caption">目录结构</Property>
+            <Property name="iconClass">fa fa-sitemap</Property>
+            <Container>
+              <Property name="contentOverflow">hidden</Property>
+              <AjaxAction id="actionGetPath">
+                <Property name="service">main#getPath</Property>
+              </AjaxAction>
+              <DataSet id="dsCategories" dataProvider="main#getCategories" dataType="[ExampleCategory]"/>
+              <DataTree id="treeExamples" dataSet="dsCategories">
+                <Property name="expandingAnimated">true</Property>
+                <Property name="allowNoCurrent">true</Property>
+                <Property name="style">
+                  <Property name="border-style">none</Property>
+                </Property>
+                <BindingConfigs>
+                  <BindingConfig childrenProperty="categories" labelProperty="label" recursive="true">
+                    <Property name="name">category</Property>
+                    <Property name="hasChildProperty">hasChild</Property>
+                    <Property name="iconClass">fa fa-folder-o</Property>
+                    <Property name="expandedIconClass">fa fa-folder-open-o</Property>
+                    <BindingConfig childrenProperty="examples" labelProperty="label">
+                      <Property name="name">example</Property>
+                      <Property name="iconClass">fa fa-file-o</Property>
+                    </BindingConfig>
+                  </BindingConfig>
+                </BindingConfigs>
+              </DataTree>
+            </Container>
+          </Section>
+          <Section>
+            <Property name="caption">查找示例</Property>
+            <Property name="iconClass">fa fa-search</Property>
+            <Container layout="regionPadding:6">
+              <Property name="contentOverflow">hidden</Property>
+              <DataSet id="dsSearchResult">
+                <Property name="dataProvider">main#search</Property>
+                <Property name="loadMode">manual</Property>
+                <Property name="dataType">[SearchResult]</Property>
+              </DataSet>
+              <Container layout="form cols:*,70;rowPadding:0;padding:0">
+                <Property name="contentOverflow">visible</Property>
+                <TextEditor id="inputSearch">
+                  <Property name="blankText">请输入搜索条件...</Property>
+                </TextEditor>
+                <Button id="buttonSearch">
+                  <Property name="caption">搜索</Property>
+                  <Property name="style">
+                    <Property name="margin-top">3px</Property>
+                  </Property>
+                  <Property name="iconClass">fa fa-search</Property>
+                </Button>
+              </Container>
+              <DataListBox id="listSearchResult">
+                <Property name="dataSet">dsSearchResult</Property>
+                <Property name="property">label</Property>
+                <Property name="rowHeight">24</Property>
+              </DataListBox>
+            </Container>
+          </Section>
+        </Accordion>
+      </SideControl>
+    </SplitPanel>
+    <Tip id="tipSkin">
+      <Property name="content">来试试Dorado7.4新增的皮肤吧！</Property>
+      <Property name="caption">小提示</Property>
+      <Property name="closeable">true</Property>
+      <Property name="arrowAlign">right</Property>
+      <Property name="arrowDirection">top</Property>
+      <Property name="icon">INFO</Property>
+      <Property name="hideAnimateType">fade</Property>
+      <Property name="showDuration">5</Property>
+    </Tip>
+    <Button id="buttonAdmin" caption="管理" layoutConstraint="top:6;right:12" tip="管理">
+      <Property name="ui">highlight</Property>
+      <Property name="iconClass">fa fa-cog</Property>
+    </Button>
+    <Button id="buttonSkin" layoutConstraint="top:6;right:4;anchorRight:previous">
+      <Property name="ui">highlight</Property>
+      <Property name="iconClass">fa fa-retweet</Property>
+      <Property name="caption">换肤</Property>
+      <Property name="tip">换肤</Property>
+      <Property name="menu">menuSkins</Property>
+    </Button>
+    <Menu id="menuSkins">
+      <CheckableMenuItem>
+        <Property name="caption">天际（不支持低版本IE）</Property>
+        <Property name="userData">modern</Property>
+        <Property name="tags">skin-item</Property>
+      </CheckableMenuItem>
+      <CheckableMenuItem>
+        <Property name="caption">珊瑚礁</Property>
+        <Property name="userData">default</Property>
+        <Property name="tags">skin-item</Property>
+      </CheckableMenuItem>
+      <CheckableMenuItem>
+        <Property name="caption">蓝天白云</Property>
+        <Property name="userData">blue-sky</Property>
+        <Property name="tags">skin-item</Property>
+      </CheckableMenuItem>
+      <CheckableMenuItem>
+        <Property name="caption">简洁红</Property>
+        <Property name="userData">concise-red</Property>
+        <Property name="tags">skin-item</Property>
+      </CheckableMenuItem>
+      <CheckableMenuItem>
+        <Property name="caption">破晓（不支持低版本IE）</Property>
+        <Property name="userData">daybreak</Property>
+        <Property name="tags">skin-item</Property>
+      </CheckableMenuItem>
+      <Separator/>
+      <MenuItem id="menuMoreSkin">
+        <Property name="caption">了解更多Dorado皮肤...</Property>
+      </MenuItem>
+    </Menu>
+    <AjaxAction id="actionChangeSkin">
+      <Property name="service">#changeSkin</Property>
+    </AjaxAction>
+  </View>
+</ViewConfig>

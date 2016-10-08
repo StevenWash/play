@@ -1,0 +1,23 @@
+.item {
+	position: relative;
+	display: -webkit-box;
+}
+
+.item .text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-flex: 1;
+	height: 100%;
+}
+
+.item .text .label {
+	display: -webkit-box;
+	font-size: 100%;
+}
+
+.item .text .summary {
+	display: -webkit-box;
+	-webkit-box-flex: 1;
+	font-size: 80%;
+	color: gray;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <View layout="Anchor" pageTemplate="com/bstek/dorado/sample/Welcome.html" title="dorado7欢迎"/>
+</ViewConfig>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig template="com.bstek.dorado.sample.admin.AdminViewTemplate">
+  <Arguments>
+    <Argument name="caption">
+      <Property name="value">示例结构维护</Property>
+    </Argument>
+  </Arguments>
+  <Context/>
+  <Model>
+    <DataType name="CategoryNode" parent="ExampleCategory">
+      <Reference name="categories" dataProvider="exampleMaintain#getCategories" dataType="[CategoryNode]" parameter="$${this.id}"/>
+      <Reference name="examples" dataProvider="exampleMaintain#getExamplesByCategoryId" dataType="[ExampleNode]" parameter="$${this.id}"/>
+    </DataType>
+    <DataType name="ExampleNode" parent="Example">
+      <PropertyDef name="sortFlag" dataType="int"/>
+      <PropertyDef name="sources" dataType="[ExampleSource]"/>
+      <PropertyDef name="categoryId">
+        <Property name="dataType">long</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="ExampleSource" parent="global:ExampleSource"/>
+  </Model>
+  <View title="${argument.caption}">
+    <Property name="packages">font-awesome</Property>
+    <GroupStart id="mainContent"/>
+    <DataSet id="dsCategories" dataProvider="exampleMaintain#getCategories" dataType="[CategoryNode]">
+      <Property name="loadMode">onReady</Property>
+    </DataSet>
+    <Action id="actionAddCategory" caption="添加新分类">
+      <Property name="tip">点击树的空白处，不选中任何分类，就可以添加顶层分类了。</Property>
+      <Property name="iconClass">fa fa-folder-o</Property>
+    </Action>
+    <Action id="actionAddExample" caption="添加新示例" disabled="true" tags="onCurrentNode">
+      <Property name="iconClass">fa fa-file-o</Property>
+    </Action>
+    <Action id="actionLinkExample" caption="关联到其它分类" disabled="true" tags="onCurrentExample">
+      <Property name="iconClass">fa fa-chain</Property>
+    </Action>
+    <Action id="actionRemove" caption="删除" disabled="true" tags="onCurrentNode">
+      <Property name="confirmMessage">确认要删除当前(分类或示例)吗？</Property>
+      <Property name="iconClass">fa fa-minus</Property>
+    </Action>
+    <Action id="actionCancel" caption="取消" disabled="true" tags="onDirtyNode">
+      <Property name="iconClass">fa fa-undo</Property>
+    </Action>
+    <UpdateAction id="actionSave" caption="全部保存" dataResolver="exampleMaintain#saveAll" disabled="true" tags="onDirty">
+      <Property name="successMessage">数据保存成功。</Property>
+      <Property name="hotkey">ctrl+s</Property>
+      <Property name="iconClass">fa fa-save</Property>
+      <UpdateItem dataSet="dsCategories">
+        <Property name="dataPath">!DIRTY_TREE</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <Menu id="menuTree">
+      <MenuItem action="actionAddCategory"/>
+      <MenuItem action="actionAddExample"/>
+      <MenuItem action="actionLinkExample"/>
+      <Separator/>
+      <MenuItem action="actionRemove"/>
+    </Menu>
+    <ToolBar layoutConstraint="top">
+      <ToolBarButton action="actionAddCategory"/>
+      <ToolBarButton action="actionAddExample"/>
+      <Separator/>
+      <ToolBarButton action="actionLinkExample"/>
+      <Separator/>
+      <ToolBarButton action="actionRemove"/>
+      <ToolBarButton action="actionCancel"/>
+      <Separator/>
+      <ToolBarButton action="actionSave"/>
+      <HtmlContainer/>
+      <HtmlContainer/>
+    </ToolBar>
+    <SplitPanel position="260">
+      <MainControl>
+        <CardBook id="cardbook">
+          <Container layout="anchor">
+            <Label layoutConstraint="left:50%; top:50%" style="whiteSpace:noWrap" text="请在左侧树中选择一个节点..."/>
+          </Container>
+          <Container layout="padding:16">
+            <AutoForm cols="*" dataPath="!CURRENT_CATEGORY" dataSet="dsCategories">
+              <AutoFormElement property="label" width="350"/>
+              <AutoFormElement property="new" type="checkBox" width="350"/>
+              <AutoFormElement property="hot" type="checkBox" width="350"/>
+              <AutoFormElement property="icon" width="350"/>
+              <AutoFormElement property="url"/>
+              <AutoFormElement property="tags"/>
+              <AutoFormElement property="summary">
+                <Property name="editorType">TextArea</Property>
+              </AutoFormElement>
+            </AutoForm>
+          </Container>
+          <Container layout="regionPadding:16" contentOverflow="hidden">
+            <AutoForm dataPath="!CURRENT_EXAMPLE" dataSet="dsCategories" layoutConstraint="top">
+              <Property name="cols">*,*</Property>
+              <AutoFormElement property="label" width="350"/>
+              <AutoFormElement property="author" width="350"/>
+              <AutoFormElement property="createDate" width="350"/>
+              <AutoFormElement property="lastModify" width="350"/>
+              <AutoFormElement property="new" type="checkBox" width="350"/>
+              <AutoFormElement property="hot" type="checkBox" width="350"/>
+              <AutoFormElement property="icon" width="350"/>
+              <AutoFormElement type="checkBox" width="350">
+                <Property name="property">embedded</Property>
+              </AutoFormElement>
+              <AutoFormElement width="350">
+                <Property name="property">embedWidth</Property>
+              </AutoFormElement>
+              <AutoFormElement width="350">
+                <Property name="property">embedHeight</Property>
+              </AutoFormElement>
+              <AutoFormElement layoutConstraint="colSpan:2" property="url"/>
+              <AutoFormElement layoutConstraint="colSpan:2" property="tags"/>
+              <AutoFormElement layoutConstraint="colSpan:2" property="summary">
+                <Property name="editorType">TextArea</Property>
+              </AutoFormElement>
+            </AutoForm>
+            <Panel caption="源文件" collapseable="true">
+              <Children>
+                <ToolBar layoutConstraint="top">
+                  <DataPilot dataPath="!CURRENT_EXAMPLE.sources" dataSet="dsCategories" itemCodes="+,-,x"/>
+                </ToolBar>
+                <ListDropDown id="triggerSourceLabel">
+                  <Property name="items">&lt;输入源文件类型>,视图配置文件,JavaScript控制器,数据模型配置文件,视图拦截器Bean,公用拦截器Bean,页面模板文件</Property>
+                </ListDropDown>
+                <DataGrid dataPath="!CURRENT_EXAMPLE.sources" dataSet="dsCategories" dragTags="sourceEntity" draggable="true" droppable="true" droppableTags="sourceEntity" style="border:none">
+                  <IndicatorColumn/>
+                  <DataColumn property="label" trigger="triggerSourceLabel" width="180"/>
+                  <DataColumn property="path" width="*"/>
+                  <DataColumn property="summary" width="350" wrappable="true"/>
+                </DataGrid>
+              </Children>
+            </Panel>
+          </Container>
+        </CardBook>
+      </MainControl>
+      <SideControl>
+        <DataTree id="treeExamples" allowNoCurrent="true" currentNodeDataPath="CURRENT_NODE" dataSet="dsCategories" dragTags="node" draggable="true" dropMode="onOrInsertItems" droppable="true" droppableTags="node">
+          <BindingConfigs>
+            <BindingConfig childrenProperty="categories" labelProperty="label" name="Category" recursive="true">
+              <Property name="iconClass">fa fa-folder-o</Property>
+              <Property name="expandedIconClass">fa fa-folder-open-o</Property>
+              <BindingConfig childrenProperty="examples" labelProperty="label" name="Example">
+                <Property name="iconClass">fa fa-file-o</Property>
+              </BindingConfig>
+            </BindingConfig>
+          </BindingConfigs>
+        </DataTree>
+      </SideControl>
+    </SplitPanel>
+    <Dialog id="dialogSelectExample" layout="padding:4" buttonAlign="right" caption="请选择一个分类..." height="400" width="400">
+      <Buttons>
+        <Button id="buttonOk" caption="确定" width="80">
+          <Property name="ui">highlight</Property>
+        </Button>
+        <Button id="buttonCancel" caption="取消" width="60"/>
+      </Buttons>
+      <Children>
+        <DataTree id="treeCategories" dataSet="dsCategories">
+          <BindingConfigs>
+            <BindingConfig childrenProperty="categories" labelProperty="label" name="Category" recursive="true">
+              <Property name="iconClass">fa fa-folder-o</Property>
+              <Property name="expandedIconClass">fa fa-folder-open-o</Property>
+            </BindingConfig>
+          </BindingConfigs>
+        </DataTree>
+      </Children>
+    </Dialog>
+    <GroupEnd/>
+  </View>
+</ViewConfig>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbModel>
+  <CompositeTable name="ProductQuery">
+    <Property name="persistTable">P</Property>
+    <Columns>
+      <Column name="ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">ID</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PRODUCT_NAME">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="table">P</Property>
+        <Property name="column">PRODUCT_NAME</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUPPLIER_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">SUPPLIER_ID</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="SUPPLIER_NAME">
+        <Property name="table">S</Property>
+        <Property name="column">COMPANY_NAME</Property>
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CATEGORY_ID">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">CATEGORY_ID</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="CATEGORY_NAME">
+        <Property name="table">C</Property>
+        <Property name="column">CATEGORY_NAME</Property>
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="QUANTITY_PER_UNIT">
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="table">P</Property>
+        <Property name="column">QUANTITY_PER_UNIT</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNIT_PRICE">
+        <Property name="jdbcType">DOUBLE-Double</Property>
+        <Property name="table">P</Property>
+        <Property name="column">UNIT_PRICE</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNITS_IN_STOCK">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">UNITS_IN_STOCK</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="UNITS_ON_ORDER">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">UNITS_ON_ORDER</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="REORDER_LEVEL">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">REORDER_LEVEL</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="DISCONTINUED">
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="table">P</Property>
+        <Property name="column">DISCONTINUED</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+    <Conditions>
+      <Base name="baseCondition">
+        <Property name="table">P</Property>
+        <Property name="column">PRODUCT_NAME</Property>
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="value">:PRODUCT_NAME</Property>
+        <Property name="operator">%like%</Property>
+      </Base>
+      <Between name="between1">
+        <Property name="table">P</Property>
+        <Property name="column">UNIT_PRICE</Property>
+        <Property name="jdbcType">DOUBLE-Double</Property>
+        <Property name="maxValue">:UNIT_PRICE2</Property>
+        <Property name="minValue">:UNIT_PRICE1</Property>
+      </Between>
+      <Base name="baseCondition1">
+        <Property name="table">P</Property>
+        <Property name="column">CATEGORY_ID</Property>
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="value">:CATEGORY_ID</Property>
+      </Base>
+    </Conditions>
+    <GroupBys/>
+    <Joins>
+      <Join name="join1">
+        <Property name="leftTable">P</Property>
+        <Property name="rightTable">C</Property>
+        <Property name="leftColumns">CATEGORY_ID</Property>
+        <Property name="rightColumns">ID</Property>
+      </Join>
+      <Join name="join2">
+        <Property name="leftTable">P</Property>
+        <Property name="leftColumns">SUPPLIER_ID</Property>
+        <Property name="rightTable">S</Property>
+        <Property name="rightColumns">ID</Property>
+      </Join>
+    </Joins>
+    <OrderBys/>
+    <Tables>
+      <FromTable name="P">
+        <Property name="referenceTable">PRODUCTS</Property>
+        <Property name="meta">
+          <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+        </Property>
+      </FromTable>
+      <FromTable name="C">
+        <Property name="referenceTable">CATEGORIES</Property>
+        <Property name="meta">
+          <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+        </Property>
+      </FromTable>
+      <FromTable name="S">
+        <Property name="referenceTable">SUPPLIERS</Property>
+        <Property name="meta">
+          <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+        </Property>
+      </FromTable>
+    </Tables>
+  </CompositeTable>
+  <CompositeTable name="ProductByCatetoryId">
+    <Columns>
+      <Column name="ID">
+        <Property name="table">PRODUCTS</Property>
+        <Property name="column">ID</Property>
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="remarks"></Property>
+      </Column>
+      <Column name="PRODUCT_NAME">
+        <Property name="table">PRODUCTS</Property>
+        <Property name="column">PRODUCT_NAME</Property>
+        <Property name="jdbcType">VARCHAR-String</Property>
+        <Property name="remarks"></Property>
+      </Column>
+    </Columns>
+    <Conditions>
+      <Base name="baseCondition">
+        <Property name="table">PRODUCTS</Property>
+        <Property name="column">CATEGORY_ID</Property>
+        <Property name="jdbcType">INTEGER-Integer</Property>
+        <Property name="value">:CATEGORY_ID</Property>
+      </Base>
+    </Conditions>
+    <GroupBys/>
+    <Joins/>
+    <OrderBys/>
+    <Tables>
+      <FromTable name="PRODUCTS">
+        <Property name="referenceTable">PRODUCTS</Property>
+        <Property name="meta">
+          <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+        </Property>
+      </FromTable>
+    </Tables>
+  </CompositeTable>
+</DbModel>

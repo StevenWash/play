@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="ExampleCategory" parent="global:ExampleCategory">
+      <Reference name="categories">
+        <Property name="dataProvider">exampleInterceptor#getCategories</Property>
+        <Property name="parameter">$${this.id}</Property>
+        <Property name="dataType">[SELF]</Property>
+      </Reference>
+      <Reference name="examples">
+        <Property name="dataType">[Example]</Property>
+        <Property name="parameter">$${this.id}</Property>
+        <Property name="dataProvider">exampleInterceptor#getExamplesByCategoryId</Property>
+      </Reference>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dataSetCategory">
+      <Property name="dataProvider">exampleInterceptor#getCategories</Property>
+      <Property name="dataType">[ExampleCategory]</Property>
+    </DataSet>
+    <TouchDataNestedList>
+      <Property name="dataSet">dataSetCategory</Property>
+      <Property name="caption">嵌套列表</Property>
+      <BindingConfigs>
+        <BindingConfig>
+          <Property name="labelProperty">label</Property>
+          <Property name="recursive">true</Property>
+          <Property name="childrenProperty">categories</Property>
+          <BindingConfig>
+            <Property name="childrenProperty">examples</Property>
+            <Property name="labelProperty">label</Property>
+          </BindingConfig>
+        </BindingConfig>
+      </BindingConfigs>
+      <Buttons/>
+      <Children/>
+      <Tools/>
+    </TouchDataNestedList>
+  </View>
+</ViewConfig>

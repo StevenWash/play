@@ -1,0 +1,15 @@
+<html>
+<head>
+<script>
+var ua = navigator.userAgent;
+if (ua.match(/(Android)\s+([\d.]+)/) ||
+	ua.match(/(iPad).*OS\s([\d_]+)/) ||
+	ua.match(/(iPhone\sOS)\s([\d_]+)/)) {
+	open("../com.bstek.dorado.sample.touch.TouchMain.d", "_self");
+}
+else {
+	open("../com.bstek.dorado.sample.touch.UserAgentWarn.d", "_self");
+}
+</script>
+</head>
+</html>

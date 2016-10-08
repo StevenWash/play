@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="anchor">
+    <Property name="title">Menu</Property>
+    <Property name="packages">font-awesome</Property>
+    <Panel id="panel1" layoutConstraint="left:20;top:20">
+      <Property name="caption">菜单实例</Property>
+      <Property name="width">600</Property>
+      <Property name="height">400</Property>
+      <Property name="maximizeable">true</Property>
+      <Buttons/>
+      <Children>
+        <ToolBar>
+          <ToolBarButton>
+            <Property name="caption">书签</Property>
+            <Property name="menu">menu3</Property>
+            <Property name="tip">ToolBarButton绑定Menu</Property>
+            <Property name="iconClass">fa fa-star</Property>
+          </ToolBarButton>
+          <ToolBarButton>
+            <Property name="menu">menu2</Property>
+            <Property name="caption">文件</Property>
+            <Property name="iconClass">fa fa-folder-o</Property>
+          </ToolBarButton>
+          <Button>
+            <Property name="menu">menu1</Property>
+            <Property name="caption">编辑</Property>
+            <Property name="tip">Button绑定Menu</Property>
+            <Property name="iconClass">fa fa-pencil</Property>
+          </Button>
+          <Fill>
+            <Property name="width">200</Property>
+          </Fill>
+          <MenuButton>
+            <Property name="caption">设置</Property>
+            <Property name="tip">CheckableMenuItem 实例</Property>
+            <Property name="iconClass">fa fa-cog</Property>
+            <CheckableMenuItem>
+              <Property name="caption">允许推送消息</Property>
+            </CheckableMenuItem>
+            <CheckableMenuItem>
+              <Property name="caption">自动更新</Property>
+            </CheckableMenuItem>
+            <CheckableMenuItem>
+              <Property name="caption">开机启动</Property>
+            </CheckableMenuItem>
+          </MenuButton>
+        </ToolBar>
+        <IFrame id="iframe1"/>
+      </Children>
+      <Tools/>
+    </Panel>
+    <Menu id="menu1">
+      <MenuItem>
+        <Property name="caption">撤销</Property>
+        <Property name="iconClass">fa fa-undo</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">重做</Property>
+        <Property name="iconClass">fa fa-repeat</Property>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">剪切</Property>
+        <Property name="iconClass">fa fa-cut</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">复制</Property>
+        <Property name="iconClass">fa fa-copy</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">粘贴</Property>
+        <Property name="iconClass">fa fa-paste</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">删除</Property>
+        <Property name="iconClass">fa fa-times</Property>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">查找</Property>
+        <Property name="iconClass">fa fa-search</Property>
+        <MenuItem>
+          <Property name="caption">查找下一个</Property>
+          <Property name="iconClass">fa fa-arrow-down</Property>
+        </MenuItem>
+        <MenuItem>
+          <Property name="caption">查找上一个</Property>
+          <Property name="iconClass">fa fa-arrow-up</Property>
+        </MenuItem>
+      </MenuItem>
+    </Menu>
+    <Menu id="menu2">
+      <MenuItem>
+        <Property name="caption">新建</Property>
+        <Property name="iconClass">fa fa-file-o</Property>
+        <MenuItem>
+          <Property name="caption">新建Dorado项目</Property>
+          <Property name="iconClass">fa fa-file-o</Property>
+        </MenuItem>
+        <MenuItem>
+          <Property name="caption">新建Dorado视图文件</Property>
+          <Property name="icon">>images/file-types/view.gif</Property>
+        </MenuItem>
+        <MenuItem>
+          <Property name="caption">新建Dorado模型文件</Property>
+          <Property name="icon">>images/file-types/model.gif</Property>
+        </MenuItem>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">打开</Property>
+        <Property name="iconClass">fa fa-folder-open-o</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">关闭</Property>
+        <Property name="iconClass">fa fa-folder-o</Property>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">保存</Property>
+        <Property name="iconClass">fa fa-save</Property>
+      </MenuItem>
+    </Menu>
+    <Menu id="menu3">
+      <ClientEvent name="onClick">alert('');
+</ClientEvent>
+      <MenuItem>
+        <Property name="caption">Bstek</Property>
+        <Property name="userData">http://www.bstek.com</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-globe</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">Bsdn</Property>
+        <Property name="userData">http://www.bsdn.org</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-globe</Property>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">Dorado7</Property>
+        <Property name="userData">http://bsdn.org/projects/dorado7</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-file-o</Property>
+      </MenuItem>
+      <Separator/>
+      <MenuItem>
+        <Property name="caption">实例中心</Property>
+        <Property name="userData">http://bsdn.org/projects/dorado7/deploy/sample-center/</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-file-o</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">控件详解</Property>
+        <Property name="userData">http://wiki.bsdn.org/pages/viewpage.action?pageId=10355476</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-file-o</Property>
+      </MenuItem>
+      <MenuItem>
+        <Property name="caption">Client Side API</Property>
+        <Property name="userData">http://bsdn.org/projects/dorado7/deploy/jsdoc/</Property>
+        <Property name="tags">bookmark</Property>
+        <Property name="iconClass">fa fa-file-o</Property>
+      </MenuItem>
+    </Menu>
+    <Menu id="menu4"/>
+    <HtmlContainer id="container1" layoutConstraint="left:20;anchorLeft:previous;top:20">
+      <Property name="width">200</Property>
+      <Property name="height">400</Property>
+      <Property name="style">
+        <Property name="background">#e6f6fc</Property>
+        <Property name="border">1px #91b8c8 dotted</Property>
+        <Property name="border-radius">3px;</Property>
+        <Property name="padding">10px;</Property>
+      </Property>
+      <Property name="content">在此区域单击鼠标右键试试哦！</Property>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

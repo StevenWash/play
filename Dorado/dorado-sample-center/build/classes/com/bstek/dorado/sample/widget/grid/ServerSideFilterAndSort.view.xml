@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="packages">font-awesome</Property>
+    <DataSet id="dsOrders">
+      <ClientEvent name="beforeLoadData" signature="arg, updateOrders">if (updateOrders.get(&quot;hasUpdateData&quot;)) {&#xD;
+	updateOrders.execute();&#xD;
+	arg.processDefault = false;&#xD;
+}</ClientEvent>
+      <Property name="dataType">[Order]</Property>
+      <Property name="dataProvider">#getAll</Property>
+      <Property name="pageSize">20</Property>
+    </DataSet>
+    <UpdateAction id="updateOrders">
+      <ClientEvent name="onSuccess">dorado.MessageBox.alert(arg.result);</ClientEvent>
+      <Property name="dataResolver">#saveOrders</Property>
+      <Property name="caption">Save</Property>
+      <Property name="iconClass">fa fa-save</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsOrders</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsOrders</Property>
+      </DataPilot>
+      <Separator/>
+      <ToolBarButton>
+        <ClientEvent name="onClick" signature="dataGrid">dataGrid.set(&quot;filterEntity.freight&quot;, &quot;>700&quot;).filter();</ClientEvent>
+        <Property name="caption">过滤Freight</Property>
+        <Property name="iconClass">fa fa-filter</Property>
+      </ToolBarButton>
+      <ToolBarButton>
+        <ClientEvent name="onClick" signature="dataGrid">dataGrid.set(&quot;filterEntity.orderDate&quot;, &quot;&lt;=2011-03-15&quot;).filter();</ClientEvent>
+        <Property name="caption">过滤OrderDate</Property>
+        <Property name="iconClass">fa fa-filter</Property>
+      </ToolBarButton>
+      <ToolBarButton>
+        <ClientEvent name="onClick" signature="dataGrid">dataGrid.set(&quot;filterEntity.shipCity&quot;, &quot;Ber&quot;).filter();</ClientEvent>
+        <Property name="caption">过滤ShipCity</Property>
+        <Property name="iconClass">fa fa-filter</Property>
+      </ToolBarButton>
+      <Separator/>
+      <ToolBarButton>
+        <ClientEvent name="onClick" signature="dataGrid">dataGrid.get(&quot;filterEntity&quot;).clearData();&#xD;
+dataGrid.filter();</ClientEvent>
+        <Property name="caption">清除过滤条件</Property>
+        <Property name="iconClass">fa fa-rotate-left</Property>
+      </ToolBarButton>
+      <Separator/>
+      <ToolBarButton>
+        <Property name="action">updateOrders</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid id="dataGrid">
+      <Property name="dataSet">dsOrders</Property>
+      <Property name="showFilterBar">true</Property>
+      <Property name="autoCreateColumns">true</Property>
+      <Property name="sortMode">serverSide</Property>
+      <Property name="filterMode">serverSide</Property>
+      <RowNumColumn/>
+    </DataGrid>
+  </View>
+</ViewConfig>

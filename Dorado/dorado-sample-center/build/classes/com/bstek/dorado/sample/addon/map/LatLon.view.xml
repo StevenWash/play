@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments>
+    <Argument name="commonStyle">
+      <Property name="value">background:#e6f6fc; border:1px #91b8c8 dotted; border-radius:3px; padding:16px; display:block; overflow:visible</Property>
+    </Argument>
+  </Arguments>
+  <Context/>
+  <Model/>
+  <View layout="padding:20">
+    <Property name="title"> 地图定位</Property>
+    <SplitPanel>
+      <Property name="position">260</Property>
+      <Property name="direction">right</Property>
+      <MainControl>
+        <Panel>
+          <Property name="caption">地图定位</Property>
+          <Buttons/>
+          <Children>
+            <ToolBar layoutConstraint="top">
+              <FormElement id="textLat">
+                <Property name="label">纬度</Property>
+                <Property name="labelWidth">50</Property>
+                <Property name="width">200</Property>
+                <Property name="showHint">false</Property>
+                <Property name="hintWidth">22</Property>
+                <Property name="labelAlign">center</Property>
+                <Editor>
+                  <TextEditor>
+                    <Property name="text">31.090574094954167</Property>
+                  </TextEditor>
+                </Editor>
+              </FormElement>
+              <FormElement id="textLon">
+                <Property name="label">经度</Property>
+                <Property name="labelWidth">50</Property>
+                <Property name="width">220</Property>
+                <Property name="showHint">false</Property>
+                <Property name="hintWidth">22</Property>
+                <Property name="labelAlign">center</Property>
+                <Editor>
+                  <TextEditor>
+                    <Property name="text">121.3330078125</Property>
+                  </TextEditor>
+                </Editor>
+              </FormElement>
+              <Separator/>
+              <Button id="btnFind1">
+                <Property name="caption">定位</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -300px -20px</Property>
+              </Button>
+              <Separator/>
+              <Fill/>
+              <FormElement id="textLatLon">
+                <Property name="label">纬经度</Property>
+                <Property name="labelWidth">50</Property>
+                <Property name="width">260</Property>
+                <Property name="showHint">false</Property>
+                <Editor>
+                  <TextEditor>
+                    <Property name="text">31°11′29.97″N,121°30′11.87″E</Property>
+                  </TextEditor>
+                </Editor>
+              </FormElement>
+              <Separator/>
+              <Button id="btnFind2">
+                <Property name="icon">url(>skin>common/icons.gif) -300px -20px</Property>
+                <Property name="caption">定位</Property>
+              </Button>
+              <ToolBarLabel>
+                <Property name="width">20</Property>
+              </ToolBarLabel>
+            </ToolBar>
+            <Map id="chinaMap" layoutConstraint="center"/>
+            <ToolBar layoutConstraint="bottom">
+              <ToolBarLabel id="labelLatLon"/>
+            </ToolBar>
+          </Children>
+          <Tools/>
+        </Panel>
+      </MainControl>
+      <SideControl>
+        <Panel>
+          <Buttons/>
+          <Children>
+            <GroupBox id="groupCapitals" layout="hbox padding:20">
+              <Property name="caption">中国四大名都</Property>
+              <Property name="style">
+                <Property name="margin-right">20px</Property>
+              </Property>
+              <Property name="collapseable">false</Property>
+              <Buttons/>
+              <Children/>
+            </GroupBox>
+            <GroupBox id="groupMountains" layout="form cols:*,*,*;padding:20">
+              <Property name="caption">中华十大名山</Property>
+              <Property name="collapseable">false</Property>
+              <Buttons/>
+              <Children/>
+            </GroupBox>
+            <Panel id="panelIntro" layout="padding:10">
+              <Property name="caption">简介</Property>
+              <Buttons/>
+              <Children>
+                <HtmlContainer id="htmlIntro"/>
+              </Children>
+              <Tools/>
+            </Panel>
+          </Children>
+          <Tools/>
+        </Panel>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

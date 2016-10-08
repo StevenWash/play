@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="padding:20">
+    <Property name="packages">font-awesome</Property>
+    <HtmlContainer>
+      <Property name="content">LongTask是一种专门用于执行长任务的Action。&#xD;
+&lt;p>&#xD;
+在其执行过程中您可以不断向客户端汇报任务当前的执行进度。即使您在任务执行的过程中刷新页面也不会干扰到任务状态在客户端的显示。&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+您可以在本例中任务的执行过程中刷新页面，并观察就行会发生什么。&#xD;
+&lt;span id=&quot;buttonDiv&quot; style=&quot;float:right&quot;>&lt;/span>&#xD;
+&lt;/p></Property>
+      <Property name="containerExpression">#buttonDiv</Property>
+      <Button id="buttonReload">
+        <Property name="caption">刷新网页</Property>
+        <Property name="ui">highlight</Property>
+      </Button>
+    </HtmlContainer>
+    <Panel layout="padding:6">
+      <Buttons/>
+      <Children>
+        <VerticalTabControl>
+          <Property name="tabColumnWidth">100</Property>
+          <ControlTab>
+            <Property name="caption">可控制的任务</Property>
+            <Container layout="vbox regionPadding:4;padding:8">
+              <LongTask id="longTaskCloneProject">
+                <Property name="caption">复制项目...</Property>
+                <Property name="appearence">daemonTask</Property>
+                <Property name="taskName">#cloneProject</Property>
+                <Property name="iconClass">fa fa-play</Property>
+              </LongTask>
+              <Container layout="anchor">
+                <Button layoutConstraint="left:0">
+                  <Property name="action">longTaskCloneProject</Property>
+                  <Property name="ui">highlight</Property>
+                </Button>
+                <Button id="buttonSuspendCloning" layoutConstraint="left:8;anchorLeft:previous">
+                  <Property name="iconClass">fa fa-pause</Property>
+                  <Property name="caption">暂停</Property>
+                  <Property name="disabled">true</Property>
+                </Button>
+                <Button id="buttonResumeCloning" layoutConstraint="anchorLeft:previous;left:4">
+                  <Property name="iconClass">fa fa-play</Property>
+                  <Property name="caption">恢复</Property>
+                  <Property name="disabled">true</Property>
+                </Button>
+                <Button id="buttonAbortCloning" layoutConstraint="anchorLeft:previous;left:4">
+                  <Property name="iconClass">fa fa-times</Property>
+                  <Property name="caption">中止</Property>
+                  <Property name="disabled">true</Property>
+                  <Property name="ui">decline</Property>
+                </Button>
+              </Container>
+              <Container>
+                <Property name="height">50</Property>
+                <ProgressBar id="progressCloneProject" layoutConstraint="center"/>
+                <Label id="labelCloneProgress" layoutConstraint="bottom"/>
+              </Container>
+            </Container>
+          </ControlTab>
+          <ControlTab>
+            <Property name="caption">输出日志</Property>
+            <Container layout="regionPadding:4;padding:8">
+              <LongTask id="longTaskCheckOrders">
+                <Property name="caption">核查所有订单...</Property>
+                <Property name="taskName">#checkOrders</Property>
+                <Property name="disableOnActive">false</Property>
+              </LongTask>
+              <Container layout="anchor">
+                <HtmlContainer layoutConstraint="left:0;top:0;right:0">
+                  <Property name="content">此任务的maxRunning为1，因此在您执行任务的期间，如果有其他用户尝试运行此任务，那么他们的操作将会进入排队等待队列中。</Property>
+                </HtmlContainer>
+                <Button layoutConstraint="left:0;top:4;anchorTop:previous">
+                  <Property name="action">longTaskCheckOrders</Property>
+                  <Property name="ui">highlight</Property>
+                </Button>
+              </Container>
+              <HtmlContainer id="messageList">
+                <Property name="style">
+                  <Property name="padding">6px</Property>
+                  <Property name="border">1px gray solid</Property>
+                </Property>
+                <Property name="content">&lt;div style=&quot;width:100%;height:100%&quot;>&lt;/div></Property>
+                <Property name="containerExpression">>div</Property>
+              </HtmlContainer>
+            </Container>
+          </ControlTab>
+        </VerticalTabControl>
+      </Children>
+      <Tools/>
+    </Panel>
+  </View>
+</ViewConfig>

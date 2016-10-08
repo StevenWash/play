@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="vbox regionPadding:6;padding:12">
+    <ColorPicker>
+      <Property name="showButtons">false</Property>
+      <Property name="color">OliveDrab</Property>
+    </ColorPicker>
+    <ColorPicker>
+      <Property name="showButtons">true</Property>
+      <Property name="showPaletteOnly">true</Property>
+      <Property name="palette">#named</Property>
+    </ColorPicker>
+    <ColorPicker>
+      <Property name="showPalette">true</Property>
+      <Property name="showAlpha">true</Property>
+      <Property name="showInitial">true</Property>
+      <Property name="showInput">true</Property>
+      <Property name="color">#772211</Property>
+    </ColorPicker>
+    <ColorEditor>
+      <Property name="color">LightBlue</Property>
+    </ColorEditor>
+  </View>
+</ViewConfig>

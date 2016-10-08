@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="vbox padding:12">
+    <Label>
+      <Property name="text">按钮类型</Property>
+      <Property name="ui">h3</Property>
+      <Property name="style">
+        <Property name="margin-bottom">10px</Property>
+      </Property>
+    </Label>
+    <Container layout="native">
+      <TouchButton>
+        <Property name="caption">Type=icon-left</Property>
+        <Property name="iconClass">icon-book</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Type=icon-right</Property>
+        <Property name="iconClass">icon-food</Property>
+        <Property name="type">icon-right</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Type=icon-top</Property>
+        <Property name="iconClass">icon-legal</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="type">icon-top</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Type=icon-bottom</Property>
+        <Property name="iconClass">icon-desktop</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="type">icon-bottom</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Type=back</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="type">back</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Type=forward</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="type">forward</Property>
+      </TouchButton>
+    </Container>
+    <Label>
+      <Property name="text">按钮外观</Property>
+      <Property name="ui">h3</Property>
+      <Property name="style">
+        <Property name="margin-top">20px</Property>
+        <Property name="margin-bottom">10px</Property>
+      </Property>
+    </Label>
+    <Container layout="native">
+      <TouchButton>
+        <Property name="caption">UI=default</Property>
+        <Property name="iconClass">icon-exchange</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">UI=highlight</Property>
+        <Property name="iconClass">icon-bell</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="ui">highlight</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">UI=decline</Property>
+        <Property name="iconClass">icon-comment</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="ui">decline</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">UI=optional1</Property>
+        <Property name="iconClass">icon-medkit</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="ui">optional1</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">UI=optional2</Property>
+        <Property name="iconClass">icon-glass</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="ui">optional2</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">UI=optional3</Property>
+        <Property name="iconClass">icon-key</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <Property name="ui">optional3</Property>
+      </TouchButton>
+    </Container>
+    <Label>
+      <Property name="text">徽章</Property>
+      <Property name="ui">h3</Property>
+      <Property name="style">
+        <Property name="margin-top">20px</Property>
+        <Property name="margin-bottom">10px</Property>
+      </Property>
+    </Label>
+    <Container layout="native">
+      <TouchButton>
+        <Property name="caption">Message</Property>
+        <Property name="iconClass">icon-envelope-alt</Property>
+        <Property name="style">
+          <Property name="margin">8px</Property>
+        </Property>
+        <Property name="badgeText">6</Property>
+      </TouchButton>
+      <TouchButton>
+        <Property name="caption">Shop</Property>
+        <Property name="iconClass">icon-bell</Property>
+        <Property name="style">
+          <Property name="margin">8px</Property>
+        </Property>
+        <Property name="ui">highlight</Property>
+        <Property name="badgeText">New</Property>
+      </TouchButton>
+    </Container>
+    <Label>
+      <Property name="text">按钮组</Property>
+      <Property name="ui">h3</Property>
+      <Property name="style">
+        <Property name="margin-top">20px</Property>
+        <Property name="margin-bottom">10px</Property>
+      </Property>
+    </Label>
+    <Container layout="native">
+      <TouchButtonGroup>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <TouchButton>
+          <Property name="caption">One</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">Two</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">Three</Property>
+        </TouchButton>
+      </TouchButtonGroup>
+      <TouchButtonGroup>
+        <Property name="ui">highlight</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <TouchButton>
+          <Property name="caption">剪刀</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">石头</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">布</Property>
+        </TouchButton>
+      </TouchButtonGroup>
+      <TouchButtonGroup>
+        <Property name="ui">optional1</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <TouchButton>
+          <Property name="caption">Left</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">Top</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">Right</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">Bottom</Property>
+        </TouchButton>
+      </TouchButtonGroup>
+      <TouchButtonGroup>
+        <Property name="ui">optional2</Property>
+        <Property name="style">
+          <Property name="margin">2px</Property>
+        </Property>
+        <TouchButton>
+          <Property name="caption">上</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">下</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">左</Property>
+        </TouchButton>
+        <TouchButton>
+          <Property name="caption">右</Property>
+        </TouchButton>
+      </TouchButtonGroup>
+    </Container>
+  </View>
+</ViewConfig>

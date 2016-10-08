@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="AreaData">
+      <PropertyDef name="label"/>
+      <PropertyDef name="value"/>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsAreas">
+      <Property name="dataType">[AreaData]</Property>
+      <Property name="dataProvider">touchChartDataProvider#getAreaData</Property>
+    </DataSet>
+    <Chart>
+      <Property name="legend">
+        <Property name="visible">true</Property>
+      </Property>
+      <Property name="title">Test</Property>
+      <Property name="style">
+        <Property name="borderColor">#cccccc</Property>
+      </Property>
+      <Axes>
+        <CategoryAxis>
+          <Property name="dataSet">dsAreas</Property>
+          <Property name="properties">label</Property>
+        </CategoryAxis>
+        <NumbericAxis>
+          <Property name="min">0</Property>
+        </NumbericAxis>
+      </Axes>
+      <Series>
+        <Area>
+          <Property name="dataSet">dsAreas</Property>
+          <Property name="bindingConfig">
+            <Property name="yProperty">value</Property>
+          </Property>
+          <Property name="smooth">true</Property>
+        </Area>
+      </Series>
+    </Chart>
+  </View>
+</ViewConfig>

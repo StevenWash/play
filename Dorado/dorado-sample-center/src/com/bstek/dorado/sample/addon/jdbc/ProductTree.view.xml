@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="CategoryTree">
+      <Property name="metaData">
+        <Property name="jdbc.model">CATEGORIES</Property>
+      </Property>
+      <Property name="meta">
+        <Property name="jdbc.compareLabel">true</Property>
+        <Property name="jdbc.compareDataType">true</Property>
+        <Property name="jdbc.resource">dbms/tables.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="CATEGORY_NAME">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="PARENT_ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="DESCRIPTION">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <Reference name="products">
+        <Property name="dataType">[ProductQuery]</Property>
+        <Property name="dataProvider">jdbcProvider</Property>
+        <Property name="parameter">
+          <Entity>
+            <Property name="CATEGORY_ID">$${this.ID}</Property>
+          </Entity>
+        </Property>
+      </Reference>
+    </DataType>
+    <DataType name="ProductQuery">
+      <Property name="metaData">
+        <Property name="jdbc.model">ProductByCatetoryId</Property>
+      </Property>
+      <Property name="meta">
+        <Property name="jdbc.compareLabel">true</Property>
+        <Property name="jdbc.compareDataType">true</Property>
+        <Property name="jdbc.resource">com/bstek/dorado/sample/jdbc/Sample.dbm.xml</Property>
+      </Property>
+      <PropertyDef name="ID">
+        <Property name="dataType">Integer</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+      <PropertyDef name="PRODUCT_NAME">
+        <Property name="dataType">String</Property>
+        <Property name="label"></Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <Property name="packages">font-awesome</Property>
+    <DataSet id="dataSet1">
+      <Property name="dataProvider">jdbcProvider</Property>
+      <Property name="dataType">[CategoryTree]</Property>
+    </DataSet>
+    <DataTree>
+      <Property name="dataSet">dataSet1</Property>
+      <BindingConfigs>
+        <BindingConfig>
+          <Property name="labelProperty">CATEGORY_NAME</Property>
+          <Property name="name">CATETORY</Property>
+          <Property name="iconClass">fa fa-folder-o</Property>
+          <BindingConfig>
+            <Property name="name">PRODUCT</Property>
+            <Property name="childrenProperty">products</Property>
+            <Property name="labelProperty">PRODUCT_NAME</Property>
+            <Property name="iconClass">fa fa-file-o</Property>
+          </BindingConfig>
+        </BindingConfig>
+      </BindingConfigs>
+    </DataTree>
+  </View>
+</ViewConfig>

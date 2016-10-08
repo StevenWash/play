@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View layout="padding:20" listener="spring:chatRoom#onReady">
+    <Panel id="panelChatRoom">
+      <Property name="maximizeable">true</Property>
+      <Property name="caption">Chat Room</Property>
+      <Buttons/>
+      <Children>
+        <CardBook id="cardbookChatRoom">
+          <Container layout="anchor">
+            <Container layout="vbox regionPadding:6" layoutConstraint="left:50%;top:50%">
+              <Label>
+                <Property name="text">请输入您的昵称：</Property>
+              </Label>
+              <TextEditor id="inputUser">
+                <Property name="width">200</Property>
+              </TextEditor>
+              <Button id="buttonEnter" layoutConstraint="align:right">
+                <Property name="caption">进入聊天室</Property>
+              </Button>
+            </Container>
+          </Container>
+          <Container layout="regionPadding:8">
+            <HtmlContainer id="messageList">
+              <Property name="style">
+                <Property name="border">1px gray solid</Property>
+              </Property>
+              <Property name="content">&lt;div style=&quot;width:100%;height:100%&quot;>&lt;/div></Property>
+              <Property name="containerExpression">>div</Property>
+            </HtmlContainer>
+            <Container layout="anchor" layoutConstraint="bottom">
+              <Property name="contentOverflow">visible</Property>
+              <TextEditor id="inputMessage" layoutConstraint="left:0;right:54;top:1">
+                <Property name="blankText">输入要发送的信息</Property>
+                <Property name="maxLength">144</Property>
+              </TextEditor>
+              <Button id="buttonSend" layoutConstraint="right:0">
+                <Property name="width">50</Property>
+                <Property name="caption">发送</Property>
+                <Property name="disabled">true</Property>
+              </Button>
+            </Container>
+          </Container>
+        </CardBook>
+      </Children>
+      <Tools/>
+    </Panel>
+  </View>
+</ViewConfig>

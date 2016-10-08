@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig meta="clientType:touch">
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsProducts">
+      <ClientEvent name="onLoadData">&#xD;
+</ClientEvent>
+      <Property name="dataProvider">productInterceptor#getAll</Property>
+      <Property name="dataType">[Product]</Property>
+      <Property name="pageSize">200</Property>
+    </DataSet>
+    <TouchDataListBox>
+      <ClientEvent name="onGetGroupString">var productName = arg.item.get(&quot;productName&quot;);&#xD;
+arg.returnValue = productName.length > 0 ? productName.charAt(0) : &quot;#&quot;;</ClientEvent>
+      <Property name="dataSet">dsProducts</Property>
+      <Property name="groupable">true</Property>
+      <Property name="property">productName</Property>
+      <Property name="showIndexBar">true</Property>
+    </TouchDataListBox>
+  </View>
+</ViewConfig>
