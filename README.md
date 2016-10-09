@@ -47,7 +47,3 @@
 ## [testJDK](https://github.com/toulezu/play/tree/master/testJDK)
 
 - 测试一些Java类的使用
-
-## [Dorado相关](https://github.com/toulezu/play/tree/master/Dorado)
-
-- 学习 Dorado 开发的一些例子

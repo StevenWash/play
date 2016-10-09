@@ -8,4 +8,4 @@
 
 ## 对一些例子的理解
 
-- [关于可联动的 DatasetDropDown 使用总结](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/%E5%85%B3%E4%BA%8E%E5%8F%AF%E8%81%94%E5%8A%A8%E7%9A%84%20DatasetDropDown%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93.md)
+- [关于可联动的 DataSetDropDown 使用总结](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/%E5%85%B3%E4%BA%8E%E5%8F%AF%E8%81%94%E5%8A%A8%E7%9A%84%20DataSetDropDown%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93.md)
