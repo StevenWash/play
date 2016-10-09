@@ -26,8 +26,6 @@
   </Model>
   <View>
     <DataSet id="dsForm">
-      <ClientEvent name="onReady">self.insert();&#xD;
-</ClientEvent>
       <Property name="dataType">Form</Property>
     </DataSet>
     <DataSet id="dsCategories" dataProvider="categoryInterceptor#getAll">
@@ -46,12 +44,6 @@
       <Property name="assignmentMap">categoryName=categoryName,categoryId=id</Property>
     </DataSetDropDown>
     <DataSetDropDown id="ddProducts">
-      <ClientEvent name="beforeExecute" signature="dsProducts, dsForm">var categoryId = dsForm.get(&quot;data.categoryId&quot;);&#xD;
-if (categoryId) {&#xD;
-	dsProducts.set(&quot;parameter&quot;, categoryId);&#xD;
-	dsProducts.flushAsync();&#xD;
-}&#xD;
-</ClientEvent>
       <Property name="dataSet">dsProducts</Property>
       <Property name="assignmentMap">productName,productId=id</Property>
     </DataSetDropDown>
@@ -69,7 +61,7 @@ if (categoryId) {&#xD;
       <AutoFormElement>
         <Property name="name">categoryName</Property>
         <Property name="property">categoryName</Property>
-        <Property name="trigger">ddCategories</Property>
+        <Property name="trigger">ddCategories,triggerClear</Property>
         <Editor/>
       </AutoFormElement>
       <AutoFormElement>
@@ -82,13 +74,12 @@ if (categoryId) {&#xD;
       <AutoFormElement>
         <Property name="name">productName</Property>
         <Property name="property">productName</Property>
-        <Property name="trigger">ddProducts</Property>
+        <Property name="trigger">ddProducts,triggerClear</Property>
         <Editor/>
       </AutoFormElement>
     </AutoForm>
     <Button id="btnSubmit">
       <Property name="caption">提交</Property>
-      <Property name="action">ajaxActionSubmit</Property>
     </Button>
     <AjaxAction id="ajaxActionSubmit">
       <Property name="service">dataSetDropDown1#doSubmit</Property>
