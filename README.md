@@ -12,6 +12,10 @@
 
 - 关于 Dubbo 上手的代码
 
+## [Dorado](https://github.com/toulezu/play/tree/master/Dorado)
+
+- 关于 Dorado 学习方面的一些代码 
+
 ## [SpringBoot](https://github.com/toulezu/play/tree/master/SpringBoot)
 
 - 关于 SpringBoot 上手的代码

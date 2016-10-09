@@ -1,8 +1,9 @@
-## ÕâÊÇÓĞ¹Ø Dorado Ñ§Ï°µÄÏîÄ¿£¬Éæ¼°µ½ Dorado ×é¼şµÄÊ¹ÓÃºÍÑ§Ï°ĞÄµÃ
+## è¿™æ˜¯æœ‰å…³ Dorado å­¦ä¹ çš„é¡¹ç›®ï¼Œæ¶‰åŠåˆ° Dorado ç»„ä»¶çš„ä½¿ç”¨å’Œå­¦ä¹ å¿ƒå¾—
 
-## ¹ØÓÚ Dorado µÄÑ§Ï°×ÊÁÏ
+## å…³äº Dorado çš„å­¦ä¹ èµ„æ–™
 
-- [Dorado ¹ÙÍø](http://www.bsdn.org/)
-- [Dorado ×ÊÁÏ¿â](http://wiki.bsdn.org/display/dorado7/Project+Home)
-- [Dorado ¿Ø¼ş×Öµä](http://wiki.bsdn.org/pages/viewpage.action?pageId=10355476)
-- [Dorado js API ÊÖ²á](http://dorado7.bsdn.org/jsdoc/)
+- [Dorado å®˜ç½‘](http://www.bsdn.org/)
+- [Dorado èµ„æ–™åº“](http://wiki.bsdn.org/display/dorado7/Project+Home)
+- [Dorado æ§ä»¶å­—å…¸](http://wiki.bsdn.org/pages/viewpage.action?pageId=10355476)
+- [Dorado js API æ‰‹å†Œ](http://dorado7.bsdn.org/jsdoc/)
+- [Dorado å®˜æ–¹çš„å°ä¾‹å­](https://github.com/toulezu/play/tree/master/Dorado/dorado-sample-center)
