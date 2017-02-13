@@ -9,11 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.ck.common.StringUtils;
 import net.toulezu.bean.GhostStoryBean;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ckjava.utils.StringUtils;
 
 
 public class GetStoriesServlet extends BaseServlet {

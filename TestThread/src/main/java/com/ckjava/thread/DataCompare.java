@@ -19,8 +19,8 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.ck.common.DateUtil;
-import net.ck.common.StringUtil;
+import com.ckjava.utils.DateUtils;
+import com.ckjava.utils.StringUtils;
 
 public class DataCompare {
 	
@@ -267,12 +267,12 @@ public class DataCompare {
 	}
 
 	private boolean isDate(Object str) {
-		return DateUtil.parseDate(str) != null ? true : false;
+		return DateUtils.parseDate(str) != null ? true : false;
 	}
 	
 	private String getStringData(ResultSet rs, int index) throws SQLException {
 		Object obj = rs.getObject(index);
-		Object data = isDate(obj) ? obj : StringUtil.getCleanXmlString(obj);
-		return StringUtil.getStr(data);
+		Object data = isDate(obj) ? obj : StringUtils.getCleanXmlString(obj);
+		return StringUtils.getStr(data);
 	}
 }

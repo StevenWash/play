@@ -14,9 +14,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.http.HttpServlet;
 
-import net.ck.common.DateUtils;
-import net.ck.common.FileUtils;
-import net.ck.common.StringUtils;
 import net.toulezu.bean.GhostStoryBean;
 import net.toulezu.service.GhostStoriesService;
 
@@ -24,6 +21,9 @@ import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ckjava.utils.DateUtils;
+import com.ckjava.utils.FileUtils;
+import com.ckjava.utils.StringUtils;
 
 @SuppressWarnings({"unchecked","rawtypes"})
 public class BaseServlet extends HttpServlet implements ServletContextListener {

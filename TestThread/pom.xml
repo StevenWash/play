@@ -17,9 +17,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>net.ck</groupId>
-			<artifactId>ck-utils</artifactId>
-			<version>20130427</version>
+			<groupId>com.ckjava</groupId>
+			<artifactId>jee-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
