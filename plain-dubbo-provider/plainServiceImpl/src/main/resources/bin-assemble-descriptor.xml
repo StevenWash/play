@@ -12,7 +12,7 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<files>
 		<file>
-			<source>src/main/resources/dubboProp.properties</source>
+			<source>src/main/resources/dubbo.properties</source>
 			<outputDirectory>conf</outputDirectory>
 			<destName>dubbo.properties</destName>
 			<filtered>true</filtered>
@@ -24,6 +24,7 @@
 			<outputDirectory>bin</outputDirectory>
 			<includes>
 				<include>*.bat</include>
+				<include>*.cmd</include>
 				<include>*.sh</include>
 			</includes>
 			<fileMode>751</fileMode>

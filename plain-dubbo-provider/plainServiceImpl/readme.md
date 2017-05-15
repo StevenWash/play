@@ -9,3 +9,5 @@
 - 启动 `${projectName}/src/test/java/com/toulezu/service/start/DemoProvider.java` 将会启动本地的dubbo服务；
 
 - 通过 `${projectName}/src/main/resources/bin-assemble-descriptor.xml` 文件中的配置，执行 `clean install -Dmaven.test.skip=true -Pprd` 将项目打包，将包部署到Linux中，解压后执行 bin 目录下的 start.sh 启动项目，执行 `ps -wef | grep ${项目路径}` 查看是否启动；
+
+- [使用MAVEN打包可执行的jar包](http://www.jianshu.com/p/afb79650b606)

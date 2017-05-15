@@ -6,10 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.ck.common.DateUtils;
-import net.ck.common.FileUtils;
-import net.ck.common.HTMLUtils;
-import net.ck.common.StringUtils;
 import net.toulezu.bean.GhostStoryBean;
 
 import org.jsoup.Jsoup;
@@ -19,6 +15,10 @@ import org.jsoup.select.Elements;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ckjava.utils.DateUtils;
+import com.ckjava.utils.FileUtils;
+import com.ckjava.utils.HTMLUtils;
+import com.ckjava.utils.StringUtils;
 
 public class GhostStoriesService {
 	private static Map<String, String> topicCodeMap = new HashMap<String, String>();
