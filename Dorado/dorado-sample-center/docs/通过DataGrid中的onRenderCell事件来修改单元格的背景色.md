@@ -147,6 +147,10 @@ private class GetVersionNameWorker implements Callable<Map<String, String>> {
 }
 ```
 
+- 最终实现的效果如下
+
+![最终效果](http://7xt8a6.com1.z0.glb.clouddn.com/onrendercell1.PNG)
+
 ## 参考
 
 - [dorado7 jsdoc](http://dorado7.bsdn.org/jsdoc/)
