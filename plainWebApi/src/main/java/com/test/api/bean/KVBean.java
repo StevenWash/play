@@ -2,8 +2,8 @@ package com.test.api.bean;
 
 import java.io.Serializable;
 
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value = "对应Map的Entry实体")
 public class KVBean implements Serializable {

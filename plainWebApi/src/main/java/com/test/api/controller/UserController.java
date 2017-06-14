@@ -16,8 +16,9 @@ import com.test.api.API;
 import com.test.api.JsonResponses;
 import com.test.api.bean.BasicInfoBean;
 import com.test.api.util.HttpUtil;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * 用户 登录/注册

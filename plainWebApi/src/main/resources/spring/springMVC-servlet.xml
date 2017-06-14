@@ -15,16 +15,12 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
-	<context:annotation-config />
-
 	<context:component-scan base-package="com.test.api" />
 
 	<!-- 以 aspectj 注解方式使用aop -->
 	<aop:aspectj-autoproxy />
 	<!-- 对 Controller 统一处理的aop实现 -->
 	<!-- <bean class="com.test.api.aop.HandleControllerAspect" /> -->
-
-	<mvc:annotation-driven />
 
 	<bean id="commonConfig"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -59,9 +55,5 @@
 			</props>
 		</property>
 	</bean>
-
-	<!-- swagger 配置 -->
-	<bean class="com.test.api.SwaggerConfig" /> 
-	<context:property-placeholder location="classpath:/swagger.properties" />
 
 </beans>

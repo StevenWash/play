@@ -6,12 +6,6 @@
 
 	<display-name>plainWebApi</display-name>
 
-	<!-- 用应用服务容器的DefaultServlet来处理静态资源请求，放在所有其他 servlet 前面 -->
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>/resources/*</url-pattern>
-	</servlet-mapping>
-
 	<!-- Spring Context -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
