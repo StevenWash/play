@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
  */
 @Controller
 @RequestMapping("/user")
-@Api(basePath = "/user", value = "user", description = "用户相关接口", position = 8)
+@Api(value = "user", tags = "用户相关接口")
 public class UserController {
 
 	// 学校广场

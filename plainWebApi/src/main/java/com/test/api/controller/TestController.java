@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Controller
 @RequestMapping("/test")
-@Api(basePath = "/test", value = "test", description = "测试相关接口", position = 8)
+@Api(value = "test", tags = "测试相关接口")
 public class TestController {
 	
 	private Map<String, String> cacheData = Collections.synchronizedMap(new HashMap<String, String>());
