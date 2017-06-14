@@ -23,8 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.test</groupId>
-			<artifactId>testMavenApi</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>testApi</artifactId>
 		</dependency>
 
 		<dependency>
