@@ -28,7 +28,7 @@ public class DataCompare {
 	
 	public static final Integer CHECK_PAGESIZE = 10000;
 	public static final String DB_SOURCE_MYSQL = "mysql";
-	public static final String DB_SOURCE_SQL_SERVER = "sql server";
+	public static final String DB_SOURCE_SQL_SERVER = "mssql";
 	
 	public static Connection getConnection(String driverName, String url, String username, String password) throws Exception {
 		Class.forName(driverName);

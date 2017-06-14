@@ -4,10 +4,6 @@
 
 - 一些 ActiveMQ 的入手代码
 
-## [ck-utils](https://github.com/toulezu/play/tree/master/ck-utils)
-
-- 一些工具类，还在持续改进中
-
 ## [Dubbo](https://github.com/toulezu/play/tree/master/Dubbo)
 
 - 关于 Dubbo 上手的代码

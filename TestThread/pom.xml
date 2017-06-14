@@ -13,6 +13,13 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>jee-utils-mvn-repo</id>
+			<url>https://raw.github.com/toulezu/jee-utils/mvn-repo/</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 
@@ -53,6 +60,12 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ckjava</groupId>
+			<artifactId>jee-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

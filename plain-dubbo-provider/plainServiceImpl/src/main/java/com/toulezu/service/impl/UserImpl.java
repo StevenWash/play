@@ -7,7 +7,6 @@ import com.toulezu.service.IUserService;
 @Service
 public class UserImpl implements IUserService {
 
-	@Override
 	public String getName(String name) {
 		return "name is " + name;
 	}

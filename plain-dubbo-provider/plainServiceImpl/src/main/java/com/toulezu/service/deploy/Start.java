@@ -14,11 +14,7 @@ public class Start {
 	public static Properties prop = getProperties();
 
     public static void main(String[] args) throws IOException {
-        System.out.println("start main");
-        System.out.println("class path = "+Start.class.getResource(""));
-        
-        // 测试从通过 assembly 插件打成的 tag.gz 中读取配置
-        System.out.println("ChromeDriverPath = "+prop.getProperty("ChromeDriverPath"));
+    	com.alibaba.dubbo.container.Main.main(args);
     }
     
     public static Properties getProperties() {
