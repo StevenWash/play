@@ -3,6 +3,7 @@ package net.toulezu.servlet;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -14,9 +15,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.http.HttpServlet;
 
-import net.toulezu.bean.GhostStoryBean;
-import net.toulezu.service.GhostStoriesService;
-
 import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSON;
@@ -24,6 +22,9 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ckjava.utils.DateUtils;
 import com.ckjava.utils.FileUtils;
 import com.ckjava.utils.StringUtils;
+
+import net.toulezu.bean.GhostStoryBean;
+import net.toulezu.service.GhostStoriesService;
 
 @SuppressWarnings({"unchecked","rawtypes"})
 public class BaseServlet extends HttpServlet implements ServletContextListener {
@@ -55,7 +56,7 @@ public class BaseServlet extends HttpServlet implements ServletContextListener {
 			try {
 				log.info("开始抓取当天的故事");
 				
-				final String todayTitle = DateUtils.getCurrentDate();
+				final String todayTitle = DateUtils.getDateString(new Date(), DateUtils.DATE);
 			//	final String todayTitle = "2015-04-29";
 				final String today = todayTitle.substring(2);
 				

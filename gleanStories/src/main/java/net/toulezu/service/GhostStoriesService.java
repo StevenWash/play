@@ -2,11 +2,10 @@ package net.toulezu.service;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import net.toulezu.bean.GhostStoryBean;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,6 +18,8 @@ import com.ckjava.utils.DateUtils;
 import com.ckjava.utils.FileUtils;
 import com.ckjava.utils.HTMLUtils;
 import com.ckjava.utils.StringUtils;
+
+import net.toulezu.bean.GhostStoryBean;
 
 public class GhostStoriesService {
 	private static Map<String, String> topicCodeMap = new HashMap<String, String>();
@@ -136,7 +137,8 @@ public class GhostStoriesService {
 			Elements trs = doc.select("dl#w dd ul li").select("li:not(.b)");
 			GhostStoryBean bean = new GhostStoryBean();
 			
-			final String todayString = DateUtils.getDateString("yy-MM-dd");
+			//final String todayString = DateUtils.getDateString(new Date(), "yy-MM-dd");
+			final String todayString = "17-05-26";
 			final String catString = "乡村";
 			for (int i = 0; i < trs.size(); i++) {
 				Elements ss = trs.get(i).select("s");
@@ -187,7 +189,7 @@ public class GhostStoriesService {
 				
 			//	FileUtils.deleteDirectory("datas"+File.separator);
 				
-				FileUtils.writeStringToFile(new File("datas"+File.separator+DateUtils.getCurrentDate()+File.separator+bean.getTitle()+".json"), JSON.toJSONString(bean, SerializerFeature.WriteClassName), false, "utf-8");
+				FileUtils.writeStringToFile(new File("datas"+File.separator+DateUtils.getDateString(new Date(), DateUtils.DATE)+File.separator+bean.getTitle()+".json"), JSON.toJSONString(bean, SerializerFeature.WriteClassName), false, "utf-8");
 				System.out.println("done.");
 			}
 		} catch (Exception e) {

@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.test</groupId>
-	<artifactId>mavenWeb1</artifactId>
+	<groupId>com.ckjava</groupId>
+	<artifactId>glean-stories</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mavenWeb1 Maven Webapp</name>
@@ -12,6 +12,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>jee-utils-mvn-repo</id>
+			<url>https://raw.github.com/toulezu/jee-utils/mvn-repo/</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -43,9 +50,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>net.ck</groupId>
-			<artifactId>ck-utils</artifactId>
-			<version>20130427</version>
+			<groupId>com.ckjava</groupId>
+			<artifactId>jee-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
