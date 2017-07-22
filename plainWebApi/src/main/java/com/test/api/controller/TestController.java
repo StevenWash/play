@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.api.bean.KVBean;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Controller
 @RequestMapping("/test")
-@Api(value = "test", tags = "测试相关接口")
+//@Api(value = "test", tags = "测试相关接口")
 public class TestController {
 	
 	private Map<String, String> cacheData = Collections.synchronizedMap(new HashMap<String, String>());

@@ -1,4 +1,4 @@
-## 项目说明
+ ## 项目说明
 
 - 这是一个Maven web项目
 
@@ -15,4 +15,7 @@
 - 使用MOCK,Junit对Spring的Controller进行单元测试
 
 - 使用Aspect AOP统一进行日志和权限处理
+
+- 项目启动成功后在浏览器中访问 `http://localhost:8080/webApi/swagger-ui.html`
+
 
