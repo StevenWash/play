@@ -13,3 +13,4 @@
 - [DataGrid的简单使用指导](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/DataGrid的简单使用指导.md)
 - [CustomDropDown的简单实用指导](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/CustomDropDown的简单实用指导.md)
 - [通过DataGrid中的onRenderCell事件来修改单元格的背景色](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/通过DataGrid中的onRenderCell事件来修改单元格的背景色.md)
+- [向 Dorado 视图传入参数](https://github.com/toulezu/play/blob/master/Dorado/dorado-sample-center/docs/向 Dorado 视图传入参数.md)
