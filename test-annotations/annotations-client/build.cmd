@@ -1,0 +1,1 @@
+javac -cp D:\git-workspace\processors\target\processors-0.0.1-SNAPSHOT.jar;D:\git-workspace\annotations\target\annotations-0.0.1-SNAPSHOT.jar D:\git-workspace\annotations-client\src\main\java\com\ckjava\annotations\client\SimpleAnnotationsTest.java
