@@ -1,9 +1,11 @@
 package com.toulezu.test.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
+@PropertySource(value = { "classpath:jdbc.properties" })
 public class DBService {
 	@Value("${jdbc_driverClassName}")
 	private String driverClassName;
