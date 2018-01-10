@@ -14,6 +14,22 @@ import java.util.concurrent.Future;
 import org.junit.Test;
 
 public class TestThread {
+	
+	public static void main(String[] args) {
+		
+		String outerVariable = "this outer variable";
+		
+		Thread testInnerClass = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				System.out.println(outerVariable);
+				//System.out.println("outerVariable = " + outerVariable);
+			}
+		});
+		
+		testInnerClass.start();
+	}
 
 	// 假设有10个任务，每个任务花费的时间如下
 	private long[] spendTime = new long[] { 1000, 2000, 3000, 5000, 500, 100, 10, 9000, 1000, 6000 };
