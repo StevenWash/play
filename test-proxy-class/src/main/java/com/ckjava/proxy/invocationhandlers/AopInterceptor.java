@@ -4,11 +4,11 @@ import java.lang.reflect.Method;
 
 import com.ckjava.proxy.interfaces.IConnection;
 
-public class DefaultInterceptor extends MyInterceptorHandler {
+public class AopInterceptor extends BInterceptorHandler {
 
 	private IConnection conn;
 	
-	public DefaultInterceptor(IConnection conn) {
+	public AopInterceptor(IConnection conn) {
 		super();
 		this.conn = conn;
 	}
@@ -22,8 +22,21 @@ public class DefaultInterceptor extends MyInterceptorHandler {
 	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		System.out.println("DefaultInterceptor ...");
-		return method.invoke(conn, args);
+		System.out.println("AopInterceptor ...");
+		
+		try {
+			System.out.println("AopInterceptor 目标方法执行前, before execute");
+			Object obj = method.invoke(conn, args);
+			System.out.println("AopInterceptor 目标方法执行后, after execute");
+			return obj;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("AopInterceptor 目标方法执行中遇到异常, exception");
+			return null;
+		} finally {
+			System.out.println("AopInterceptor 目标方法在返回前, before returning");
+		}
+		
 	}
 	
 }

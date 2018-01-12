@@ -2,7 +2,7 @@ package com.ckjava.proxy.invocationhandlers;
 
 import java.lang.reflect.Method;
 
-public class BInterceptor extends MyInterceptorHandler {
+public class BInterceptor extends BInterceptorHandler {
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

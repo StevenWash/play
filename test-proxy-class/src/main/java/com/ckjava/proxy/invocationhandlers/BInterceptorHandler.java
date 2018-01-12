@@ -3,15 +3,15 @@ package com.ckjava.proxy.invocationhandlers;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-public abstract class MyInterceptorHandler implements InvocationHandler {
+public abstract class BInterceptorHandler implements InvocationHandler {
 
-	private MyInterceptorHandler next;
+	private BInterceptorHandler next;
 
-	public MyInterceptorHandler getNext() {
+	public BInterceptorHandler getNext() {
 		return next;
 	}
 
-	public void setNext(MyInterceptorHandler next) {
+	public void setNext(BInterceptorHandler next) {
 		this.next = next;
 	}
 

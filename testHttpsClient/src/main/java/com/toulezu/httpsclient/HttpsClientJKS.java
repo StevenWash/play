@@ -1,12 +1,14 @@
 package com.toulezu.httpsclient;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.KeyStore;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.scheme.Scheme;
@@ -38,7 +40,9 @@ public class HttpsClientJKS {
 	private static void ssl() throws Exception {
 		HttpClient httpClient = new DefaultHttpClient();
 		try {
+			// 存放客户端的私钥
 			KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+			// 存放客户端收集的公钥
 			KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_JKS);
 			InputStream ksIn = HttpsClientTrustStore.class.getClassLoader().getResourceAsStream(KEY_STORE_CLIENT_PATH);
 			InputStream tsIn = HttpsClientTrustStore.class.getClassLoader().getResourceAsStream(KEY_STORE_TRUST_PATH);
@@ -59,25 +63,33 @@ public class HttpsClientJKS {
 			}
 			SSLSocketFactory socketFactory = new SSLSocketFactory(keyStore, KEY_STORE_PASSWORD, trustStore);
 			Scheme sch = new Scheme(SCHEME_HTTPS, HTTPS_PORT, socketFactory);
+			
+			// 注册当使用 https 请求的时候使用的 KeyStore 和 trustStore
+			
 			httpClient.getConnectionManager().getSchemeRegistry().register(sch);
-			HttpGet httpget = new HttpGet(HTTPS_URL);
-			System.out.println("executing request" + httpget.getRequestLine());
-			HttpResponse response = httpClient.execute(httpget);
-			HttpEntity entity = response.getEntity();
-			System.out.println("----------------------------------------");
-			System.out.println(response.getStatusLine());
-			if (entity != null) {
-				System.out.println("Response content length: " + entity.getContentLength());
-				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(entity.getContent()));
-				String text;
-				while ((text = bufferedReader.readLine()) != null) {
-					System.out.println(text);
-				}
-				bufferedReader.close();
-			}
-			EntityUtils.consume(entity);
+			// 使用 http get请求
+			doHttpGet(httpClient, HTTPS_URL);
 		} finally {
 			httpClient.getConnectionManager().shutdown();
 		}
+	}
+
+	private static void doHttpGet(HttpClient httpClient, String url) throws IOException, ClientProtocolException {
+		HttpGet httpget = new HttpGet(url);
+		System.out.println("executing request" + httpget.getRequestLine());
+		HttpResponse response = httpClient.execute(httpget);
+		HttpEntity entity = response.getEntity();
+		System.out.println("----------------------------------------");
+		System.out.println(response.getStatusLine());
+		if (entity != null) {
+			System.out.println("Response content length: " + entity.getContentLength());
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(entity.getContent()));
+			String text;
+			while ((text = bufferedReader.readLine()) != null) {
+				System.out.println(text);
+			}
+			bufferedReader.close();
+		}
+		EntityUtils.consume(entity);
 	}
 }

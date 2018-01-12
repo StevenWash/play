@@ -1,14 +1,13 @@
 package com.ckjava.proxy.run;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 import com.ckjava.proxy.interfaces.IConnection;
 import com.ckjava.proxy.interfaces.impl.MyConnectionImpl;
 import com.ckjava.proxy.invocationhandlers.AInterceptor;
+import com.ckjava.proxy.invocationhandlers.AnnotationInterceptor;
 import com.ckjava.proxy.invocationhandlers.BInterceptor;
-import com.ckjava.proxy.invocationhandlers.DefaultInterceptor;
+import com.ckjava.proxy.invocationhandlers.AopInterceptor;
 
 /**
  * 使用动态代理的方式实现责任链设计模式
@@ -26,9 +25,12 @@ public class AppMain {
 		// 拦截 close 方法
 		BInterceptor binc = new BInterceptor();
 		ainc.setNext(binc);
+		// 注解拦截
+		AnnotationInterceptor annc = new AnnotationInterceptor();
+		binc.setNext(annc);
 		// 拦截其他方法
-		DefaultInterceptor defc = new DefaultInterceptor(new MyConnectionImpl());
-		binc.setNext(defc);
+		AopInterceptor defc = new AopInterceptor(new MyConnectionImpl());
+		annc.setNext(defc);
 		
 		// AInterceptor (next)-> BInterceptor
 		try {
@@ -42,6 +44,10 @@ public class AppMain {
 			conn.open();
 			
 			conn.create();
+			
+			conn.get("a");
+			
+			conn.get("", "");
 			
 			conn.close();
 			
