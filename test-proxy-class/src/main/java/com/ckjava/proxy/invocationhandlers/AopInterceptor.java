@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import com.ckjava.proxy.interfaces.IConnection;
 
-public class AopInterceptor extends BInterceptorHandler {
+public class AopInterceptor extends AbstractInterceptorHandler {
 
 	private IConnection conn;
 	

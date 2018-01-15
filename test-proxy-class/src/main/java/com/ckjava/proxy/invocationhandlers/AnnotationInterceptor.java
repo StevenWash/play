@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import com.ckjava.proxy.annotations.NotEmpty;
 import com.ckjava.proxy.annotations.NotNull;
 
-public class AnnotationInterceptor extends BInterceptorHandler {
+public class AnnotationInterceptor extends AbstractInterceptorHandler {
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

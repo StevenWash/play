@@ -17,11 +17,11 @@ public class MyConnectionImpl implements IConnection {
 	}
 
 	public void get(String key) {
-		System.out.println("the key is " + key);
+		System.out.println("do get(key), the key is " + key);
 	}
 
 	public void get(String key, String value) {
-		System.out.println("the key is " + key + ", the value is " + value);
+		System.out.println("do get(key, value), the key is " + key + ", the value is " + value);
 	//	throw new RuntimeException("ss");
 	}
 
